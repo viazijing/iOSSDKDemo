@@ -8,22 +8,51 @@
 
 /* Begin PBXBuildFile section */
 		04238F692DA8AFDF002889E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04238F682DA8AFDF002889E4 /* AppDelegate.swift */; };
-		04238F6B2DA8AFDF002889E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04238F6A2DA8AFDF002889E4 /* SceneDelegate.swift */; };
 		04238F6D2DA8AFDF002889E4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04238F6C2DA8AFDF002889E4 /* ViewController.swift */; };
-		04238F702DA8AFDF002889E4 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 04238F6F2DA8AFDF002889E4 /* Base */; };
 		04238F722DA8AFE1002889E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04238F712DA8AFE1002889E4 /* Assets.xcassets */; };
-		04238F752DA8AFE1002889E4 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 04238F742DA8AFE1002889E4 /* Base */; };
+		04238F902DA8BD2C002889E4 /* Zip.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 04238F892DA8BD2C002889E4 /* Zip.framework.dSYM */; };
+		04238F912DA8BDD3002889E4 /* common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04238F852DA8BD2C002889E4 /* common.framework */; };
+		04238F922DA8BDD3002889E4 /* common.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04238F852DA8BD2C002889E4 /* common.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		04238F932DA8BDD4002889E4 /* net.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04238F862DA8BD2C002889E4 /* net.framework */; };
+		04238F942DA8BDD4002889E4 /* net.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04238F862DA8BD2C002889E4 /* net.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		04238F952DA8BDD5002889E4 /* rtc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04238F872DA8BD2C002889E4 /* rtc.framework */; };
+		04238F962DA8BDD6002889E4 /* rtc.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04238F872DA8BD2C002889E4 /* rtc.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		04238F972DA8BDD7002889E4 /* WebRTC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04238F842DA8BD2B002889E4 /* WebRTC.framework */; };
+		04238F982DA8BDD7002889E4 /* WebRTC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04238F842DA8BD2B002889E4 /* WebRTC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		04238F992DA8BDD8002889E4 /* Zip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04238F882DA8BD2C002889E4 /* Zip.framework */; };
+		04238F9A2DA8BDD8002889E4 /* Zip.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04238F882DA8BD2C002889E4 /* Zip.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		04238F812DA8B528002889E4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				04238F942DA8BDD4002889E4 /* net.framework in Embed Frameworks */,
+				04238F922DA8BDD3002889E4 /* common.framework in Embed Frameworks */,
+				04238F962DA8BDD6002889E4 /* rtc.framework in Embed Frameworks */,
+				04238F982DA8BDD7002889E4 /* WebRTC.framework in Embed Frameworks */,
+				04238F9A2DA8BDD8002889E4 /* Zip.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		04238F652DA8AFDF002889E4 /* iOSSDKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSSDKDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04238F682DA8AFDF002889E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		04238F6A2DA8AFDF002889E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		04238F6C2DA8AFDF002889E4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		04238F6F2DA8AFDF002889E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04238F712DA8AFE1002889E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		04238F742DA8AFE1002889E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04238F762DA8AFE1002889E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04238F842DA8BD2B002889E4 /* WebRTC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebRTC.framework; sourceTree = "<group>"; };
+		04238F852DA8BD2C002889E4 /* common.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = common.framework; sourceTree = "<group>"; };
+		04238F862DA8BD2C002889E4 /* net.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = net.framework; sourceTree = "<group>"; };
+		04238F872DA8BD2C002889E4 /* rtc.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = rtc.framework; sourceTree = "<group>"; };
+		04238F882DA8BD2C002889E4 /* Zip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Zip.framework; sourceTree = "<group>"; };
+		04238F892DA8BD2C002889E4 /* Zip.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = Zip.framework.dSYM; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +60,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04238F912DA8BDD3002889E4 /* common.framework in Frameworks */,
+				04238F932DA8BDD4002889E4 /* net.framework in Frameworks */,
+				04238F952DA8BDD5002889E4 /* rtc.framework in Frameworks */,
+				04238F972DA8BDD7002889E4 /* WebRTC.framework in Frameworks */,
+				04238F992DA8BDD8002889E4 /* Zip.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				04238F672DA8AFDF002889E4 /* iOSSDKDemo */,
+				04238F7C2DA8B4A6002889E4 /* Frameworks */,
 				04238F662DA8AFDF002889E4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -57,14 +92,32 @@
 			isa = PBXGroup;
 			children = (
 				04238F682DA8AFDF002889E4 /* AppDelegate.swift */,
-				04238F6A2DA8AFDF002889E4 /* SceneDelegate.swift */,
 				04238F6C2DA8AFDF002889E4 /* ViewController.swift */,
-				04238F6E2DA8AFDF002889E4 /* Main.storyboard */,
 				04238F712DA8AFE1002889E4 /* Assets.xcassets */,
-				04238F732DA8AFE1002889E4 /* LaunchScreen.storyboard */,
 				04238F762DA8AFE1002889E4 /* Info.plist */,
 			);
 			path = iOSSDKDemo;
+			sourceTree = "<group>";
+		};
+		04238F7C2DA8B4A6002889E4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				04238F852DA8BD2C002889E4 /* common.framework */,
+				04238F862DA8BD2C002889E4 /* net.framework */,
+				04238F872DA8BD2C002889E4 /* rtc.framework */,
+				04238F842DA8BD2B002889E4 /* WebRTC.framework */,
+				04238F8A2DA8BD2C002889E4 /* Zip */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		04238F8A2DA8BD2C002889E4 /* Zip */ = {
+			isa = PBXGroup;
+			children = (
+				04238F882DA8BD2C002889E4 /* Zip.framework */,
+				04238F892DA8BD2C002889E4 /* Zip.framework.dSYM */,
+			);
+			path = Zip;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,6 +130,7 @@
 				04238F612DA8AFDF002889E4 /* Sources */,
 				04238F622DA8AFDF002889E4 /* Frameworks */,
 				04238F632DA8AFDF002889E4 /* Resources */,
+				04238F812DA8B528002889E4 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,9 +179,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04238F902DA8BD2C002889E4 /* Zip.framework.dSYM in Resources */,
 				04238F722DA8AFE1002889E4 /* Assets.xcassets in Resources */,
-				04238F752DA8AFE1002889E4 /* Base in Resources */,
-				04238F702DA8AFDF002889E4 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,30 +193,10 @@
 			files = (
 				04238F6D2DA8AFDF002889E4 /* ViewController.swift in Sources */,
 				04238F692DA8AFDF002889E4 /* AppDelegate.swift in Sources */,
-				04238F6B2DA8AFDF002889E4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		04238F6E2DA8AFDF002889E4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				04238F6F2DA8AFDF002889E4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		04238F732DA8AFE1002889E4 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				04238F742DA8AFE1002889E4 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		04238F772DA8AFE1002889E4 /* Debug */ = {
@@ -293,13 +326,18 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Z8SE9YCY23;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Frameworks/Zip",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iOSSDKDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -321,13 +359,18 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Z8SE9YCY23;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Frameworks/Zip",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iOSSDKDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

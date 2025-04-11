@@ -1,0 +1,4 @@
+framework module rtc {
+  header "rtc-Swift.h"
+  requires objc
+}
