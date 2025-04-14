@@ -21,6 +21,31 @@
 		04238F982DA8BDD7002889E4 /* WebRTC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04238F842DA8BD2B002889E4 /* WebRTC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		04238F992DA8BDD8002889E4 /* Zip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04238F882DA8BD2C002889E4 /* Zip.framework */; };
 		04238F9A2DA8BDD8002889E4 /* Zip.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04238F882DA8BD2C002889E4 /* Zip.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		04238F9F2DA8C093002889E4 /* SnapKit.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 04238F9C2DA8C093002889E4 /* SnapKit.framework.dSYM */; };
+		04238FA02DA8C7AA002889E4 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04238F9B2DA8C093002889E4 /* SnapKit.framework */; };
+		04238FA12DA8C7AA002889E4 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04238F9B2DA8C093002889E4 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		04238FA32DA8C809002889E4 /* ConferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04238FA22DA8C809002889E4 /* ConferenceViewController.swift */; };
+		04238FAD2DA8CA0F002889E4 /* TZImagePickerController.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 04238FAA2DA8CA0F002889E4 /* TZImagePickerController.framework.dSYM */; };
+		04238FAE2DA8CA15002889E4 /* TZImagePickerController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04238FA92DA8CA0F002889E4 /* TZImagePickerController.framework */; };
+		04238FAF2DA8CA15002889E4 /* TZImagePickerController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04238FA92DA8CA0F002889E4 /* TZImagePickerController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		042422C52DA90B3A00AD7E43 /* permission.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042422C32DA90B2E00AD7E43 /* permission.framework */; };
+		042422C62DA90B3A00AD7E43 /* permission.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 042422C32DA90B2E00AD7E43 /* permission.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		042422C92DA90D1C00AD7E43 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042422C82DA90D1C00AD7E43 /* UIColorExtension.swift */; };
+		042422CC2DA90E8000AD7E43 /* MyShowLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042422CB2DA90E8000AD7E43 /* MyShowLogger.swift */; };
+		042422CE2DA90F9700AD7E43 /* ConferenceChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042422CD2DA90F9700AD7E43 /* ConferenceChildViewController.swift */; };
+		042422D02DA90FFA00AD7E43 /* ConferenceDefaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042422CF2DA90FFA00AD7E43 /* ConferenceDefaultViewController.swift */; };
+		042422D32DA9101C00AD7E43 /* ParticipantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042422D22DA9101C00AD7E43 /* ParticipantView.swift */; };
+		042422D52DA910DA00AD7E43 /* DrawingBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042422D42DA910DA00AD7E43 /* DrawingBoardView.swift */; };
+		042422D72DA9110000AD7E43 /* WhiteBoardFuncBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042422D62DA9110000AD7E43 /* WhiteBoardFuncBar.swift */; };
+		042422D92DA9113D00AD7E43 /* WhiteBoardFuncView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042422D82DA9113D00AD7E43 /* WhiteBoardFuncView.swift */; };
+		042422DB2DA9125D00AD7E43 /* PaintColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042422DA2DA9125D00AD7E43 /* PaintColorView.swift */; };
+		042422DD2DA9126500AD7E43 /* PaintWidthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042422DC2DA9126500AD7E43 /* PaintWidthView.swift */; };
+		042422DF2DA9132700AD7E43 /* MyHttpHepler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042422DE2DA9132700AD7E43 /* MyHttpHepler.swift */; };
+		042422E32DA9153100AD7E43 /* VerticalListDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042422E22DA9153100AD7E43 /* VerticalListDialog.swift */; };
+		042422E52DA9159800AD7E43 /* DividerLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042422E42DA9159800AD7E43 /* DividerLine.swift */; };
+		042422E72DA9170700AD7E43 /* ConferencePresentImgViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042422E62DA9170700AD7E43 /* ConferencePresentImgViewController.swift */; };
+		042422EE2DA9177700AD7E43 /* ImgViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042422ED2DA9177700AD7E43 /* ImgViewController.swift */; };
+		042422F02DA9181800AD7E43 /* ConferencePresentPDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042422EF2DA9181800AD7E43 /* ConferencePresentPDFViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,8 +56,11 @@
 			dstSubfolderSpec = 10;
 			files = (
 				04238F942DA8BDD4002889E4 /* net.framework in Embed Frameworks */,
+				042422C62DA90B3A00AD7E43 /* permission.framework in Embed Frameworks */,
 				04238F922DA8BDD3002889E4 /* common.framework in Embed Frameworks */,
 				04238F962DA8BDD6002889E4 /* rtc.framework in Embed Frameworks */,
+				04238FAF2DA8CA15002889E4 /* TZImagePickerController.framework in Embed Frameworks */,
+				04238FA12DA8C7AA002889E4 /* SnapKit.framework in Embed Frameworks */,
 				04238F982DA8BDD7002889E4 /* WebRTC.framework in Embed Frameworks */,
 				04238F9A2DA8BDD8002889E4 /* Zip.framework in Embed Frameworks */,
 			);
@@ -53,6 +81,28 @@
 		04238F872DA8BD2C002889E4 /* rtc.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = rtc.framework; sourceTree = "<group>"; };
 		04238F882DA8BD2C002889E4 /* Zip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Zip.framework; sourceTree = "<group>"; };
 		04238F892DA8BD2C002889E4 /* Zip.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = Zip.framework.dSYM; sourceTree = "<group>"; };
+		04238F9B2DA8C093002889E4 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SnapKit.framework; sourceTree = "<group>"; };
+		04238F9C2DA8C093002889E4 /* SnapKit.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = SnapKit.framework.dSYM; sourceTree = "<group>"; };
+		04238FA22DA8C809002889E4 /* ConferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConferenceViewController.swift; sourceTree = "<group>"; };
+		04238FA92DA8CA0F002889E4 /* TZImagePickerController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TZImagePickerController.framework; sourceTree = "<group>"; };
+		04238FAA2DA8CA0F002889E4 /* TZImagePickerController.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = TZImagePickerController.framework.dSYM; sourceTree = "<group>"; };
+		042422C32DA90B2E00AD7E43 /* permission.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = permission.framework; sourceTree = "<group>"; };
+		042422C82DA90D1C00AD7E43 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		042422CB2DA90E8000AD7E43 /* MyShowLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyShowLogger.swift; sourceTree = "<group>"; };
+		042422CD2DA90F9700AD7E43 /* ConferenceChildViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConferenceChildViewController.swift; sourceTree = "<group>"; };
+		042422CF2DA90FFA00AD7E43 /* ConferenceDefaultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConferenceDefaultViewController.swift; sourceTree = "<group>"; };
+		042422D22DA9101C00AD7E43 /* ParticipantView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantView.swift; sourceTree = "<group>"; };
+		042422D42DA910DA00AD7E43 /* DrawingBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingBoardView.swift; sourceTree = "<group>"; };
+		042422D62DA9110000AD7E43 /* WhiteBoardFuncBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhiteBoardFuncBar.swift; sourceTree = "<group>"; };
+		042422D82DA9113D00AD7E43 /* WhiteBoardFuncView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhiteBoardFuncView.swift; sourceTree = "<group>"; };
+		042422DA2DA9125D00AD7E43 /* PaintColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintColorView.swift; sourceTree = "<group>"; };
+		042422DC2DA9126500AD7E43 /* PaintWidthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintWidthView.swift; sourceTree = "<group>"; };
+		042422DE2DA9132700AD7E43 /* MyHttpHepler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHttpHepler.swift; sourceTree = "<group>"; };
+		042422E22DA9153100AD7E43 /* VerticalListDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalListDialog.swift; sourceTree = "<group>"; };
+		042422E42DA9159800AD7E43 /* DividerLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DividerLine.swift; sourceTree = "<group>"; };
+		042422E62DA9170700AD7E43 /* ConferencePresentImgViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConferencePresentImgViewController.swift; sourceTree = "<group>"; };
+		042422ED2DA9177700AD7E43 /* ImgViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImgViewController.swift; sourceTree = "<group>"; };
+		042422EF2DA9181800AD7E43 /* ConferencePresentPDFViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConferencePresentPDFViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +111,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				04238F912DA8BDD3002889E4 /* common.framework in Frameworks */,
+				042422C52DA90B3A00AD7E43 /* permission.framework in Frameworks */,
 				04238F932DA8BDD4002889E4 /* net.framework in Frameworks */,
 				04238F952DA8BDD5002889E4 /* rtc.framework in Frameworks */,
+				04238FAE2DA8CA15002889E4 /* TZImagePickerController.framework in Frameworks */,
+				04238FA02DA8C7AA002889E4 /* SnapKit.framework in Frameworks */,
 				04238F972DA8BDD7002889E4 /* WebRTC.framework in Frameworks */,
 				04238F992DA8BDD8002889E4 /* Zip.framework in Frameworks */,
 			);
@@ -91,6 +144,11 @@
 		04238F672DA8AFDF002889E4 /* iOSSDKDemo */ = {
 			isa = PBXGroup;
 			children = (
+				042422E82DA9173100AD7E43 /* common */,
+				042422C72DA90D0500AD7E43 /* extension */,
+				042422CA2DA90E7200AD7E43 /* util */,
+				042422E02DA9151C00AD7E43 /* conference */,
+				042422D12DA9100B00AD7E43 /* widget */,
 				04238F682DA8AFDF002889E4 /* AppDelegate.swift */,
 				04238F6C2DA8AFDF002889E4 /* ViewController.swift */,
 				04238F712DA8AFE1002889E4 /* Assets.xcassets */,
@@ -104,9 +162,12 @@
 			children = (
 				04238F852DA8BD2C002889E4 /* common.framework */,
 				04238F862DA8BD2C002889E4 /* net.framework */,
+				042422C32DA90B2E00AD7E43 /* permission.framework */,
 				04238F872DA8BD2C002889E4 /* rtc.framework */,
 				04238F842DA8BD2B002889E4 /* WebRTC.framework */,
 				04238F8A2DA8BD2C002889E4 /* Zip */,
+				04238F9D2DA8C093002889E4 /* SnapKit */,
+				04238FAB2DA8CA0F002889E4 /* TZImagePickerController */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -118,6 +179,116 @@
 				04238F892DA8BD2C002889E4 /* Zip.framework.dSYM */,
 			);
 			path = Zip;
+			sourceTree = "<group>";
+		};
+		04238F9D2DA8C093002889E4 /* SnapKit */ = {
+			isa = PBXGroup;
+			children = (
+				04238F9B2DA8C093002889E4 /* SnapKit.framework */,
+				04238F9C2DA8C093002889E4 /* SnapKit.framework.dSYM */,
+			);
+			path = SnapKit;
+			sourceTree = "<group>";
+		};
+		04238FAB2DA8CA0F002889E4 /* TZImagePickerController */ = {
+			isa = PBXGroup;
+			children = (
+				04238FA92DA8CA0F002889E4 /* TZImagePickerController.framework */,
+				04238FAA2DA8CA0F002889E4 /* TZImagePickerController.framework.dSYM */,
+			);
+			path = TZImagePickerController;
+			sourceTree = "<group>";
+		};
+		042422C72DA90D0500AD7E43 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				042422C82DA90D1C00AD7E43 /* UIColorExtension.swift */,
+			);
+			path = extension;
+			sourceTree = "<group>";
+		};
+		042422CA2DA90E7200AD7E43 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				042422DE2DA9132700AD7E43 /* MyHttpHepler.swift */,
+				042422CB2DA90E8000AD7E43 /* MyShowLogger.swift */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+		042422D12DA9100B00AD7E43 /* widget */ = {
+			isa = PBXGroup;
+			children = (
+				042422E42DA9159800AD7E43 /* DividerLine.swift */,
+				042422D42DA910DA00AD7E43 /* DrawingBoardView.swift */,
+				042422DA2DA9125D00AD7E43 /* PaintColorView.swift */,
+				042422DC2DA9126500AD7E43 /* PaintWidthView.swift */,
+				042422D22DA9101C00AD7E43 /* ParticipantView.swift */,
+				042422D62DA9110000AD7E43 /* WhiteBoardFuncBar.swift */,
+				042422D82DA9113D00AD7E43 /* WhiteBoardFuncView.swift */,
+			);
+			path = widget;
+			sourceTree = "<group>";
+		};
+		042422E02DA9151C00AD7E43 /* conference */ = {
+			isa = PBXGroup;
+			children = (
+				042422E12DA9152300AD7E43 /* view */,
+			);
+			path = conference;
+			sourceTree = "<group>";
+		};
+		042422E12DA9152300AD7E43 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				042422EB2DA9175F00AD7E43 /* vc */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		042422E82DA9173100AD7E43 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				042422E92DA9174400AD7E43 /* view */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		042422E92DA9174400AD7E43 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				042422EC2DA9176D00AD7E43 /* vc */,
+				042422EA2DA9174C00AD7E43 /* dialog */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		042422EA2DA9174C00AD7E43 /* dialog */ = {
+			isa = PBXGroup;
+			children = (
+				042422E22DA9153100AD7E43 /* VerticalListDialog.swift */,
+			);
+			path = dialog;
+			sourceTree = "<group>";
+		};
+		042422EB2DA9175F00AD7E43 /* vc */ = {
+			isa = PBXGroup;
+			children = (
+				042422CD2DA90F9700AD7E43 /* ConferenceChildViewController.swift */,
+				042422CF2DA90FFA00AD7E43 /* ConferenceDefaultViewController.swift */,
+				042422E62DA9170700AD7E43 /* ConferencePresentImgViewController.swift */,
+				042422EF2DA9181800AD7E43 /* ConferencePresentPDFViewController.swift */,
+				04238FA22DA8C809002889E4 /* ConferenceViewController.swift */,
+			);
+			path = vc;
+			sourceTree = "<group>";
+		};
+		042422EC2DA9176D00AD7E43 /* vc */ = {
+			isa = PBXGroup;
+			children = (
+				042422ED2DA9177700AD7E43 /* ImgViewController.swift */,
+			);
+			path = vc;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,7 +350,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04238FAD2DA8CA0F002889E4 /* TZImagePickerController.framework.dSYM in Resources */,
 				04238F902DA8BD2C002889E4 /* Zip.framework.dSYM in Resources */,
+				04238F9F2DA8C093002889E4 /* SnapKit.framework.dSYM in Resources */,
 				04238F722DA8AFE1002889E4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -193,6 +366,23 @@
 			files = (
 				04238F6D2DA8AFDF002889E4 /* ViewController.swift in Sources */,
 				04238F692DA8AFDF002889E4 /* AppDelegate.swift in Sources */,
+				042422D32DA9101C00AD7E43 /* ParticipantView.swift in Sources */,
+				04238FA32DA8C809002889E4 /* ConferenceViewController.swift in Sources */,
+				042422F02DA9181800AD7E43 /* ConferencePresentPDFViewController.swift in Sources */,
+				042422CE2DA90F9700AD7E43 /* ConferenceChildViewController.swift in Sources */,
+				042422DB2DA9125D00AD7E43 /* PaintColorView.swift in Sources */,
+				042422CC2DA90E8000AD7E43 /* MyShowLogger.swift in Sources */,
+				042422E32DA9153100AD7E43 /* VerticalListDialog.swift in Sources */,
+				042422D52DA910DA00AD7E43 /* DrawingBoardView.swift in Sources */,
+				042422DD2DA9126500AD7E43 /* PaintWidthView.swift in Sources */,
+				042422EE2DA9177700AD7E43 /* ImgViewController.swift in Sources */,
+				042422C92DA90D1C00AD7E43 /* UIColorExtension.swift in Sources */,
+				042422E52DA9159800AD7E43 /* DividerLine.swift in Sources */,
+				042422D72DA9110000AD7E43 /* WhiteBoardFuncBar.swift in Sources */,
+				042422DF2DA9132700AD7E43 /* MyHttpHepler.swift in Sources */,
+				042422E72DA9170700AD7E43 /* ConferencePresentImgViewController.swift in Sources */,
+				042422D92DA9113D00AD7E43 /* WhiteBoardFuncView.swift in Sources */,
+				042422D02DA90FFA00AD7E43 /* ConferenceDefaultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +520,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 					"$(PROJECT_DIR)/Frameworks/Zip",
+					"$(PROJECT_DIR)/Frameworks/SnapKit",
+					"$(PROJECT_DIR)/TZImagePickerController",
+					"$(PROJECT_DIR)/Frameworks/TZImagePickerController",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iOSSDKDemo/Info.plist;
@@ -363,6 +556,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 					"$(PROJECT_DIR)/Frameworks/Zip",
+					"$(PROJECT_DIR)/Frameworks/SnapKit",
+					"$(PROJECT_DIR)/TZImagePickerController",
+					"$(PROJECT_DIR)/Frameworks/TZImagePickerController",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iOSSDKDemo/Info.plist;

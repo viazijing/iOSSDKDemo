@@ -1,0 +1,4 @@
+framework module permission {
+  header "permission-Swift.h"
+  requires objc
+}
