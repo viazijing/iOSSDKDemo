@@ -9,12 +9,6 @@ import UIKit
 import WebRTC
 import rtc
 
-enum Signal: String {
-    case low = "conference_iv_remote_signal_src_1"
-    case middle = "conference_iv_remote_signal_src_2"
-    case high = "conference_iv_remote_signal_src_3"
-}
-
 class MyVideoView: RTCEAGLVideoView {
     weak var curRTCVideoFrame: RTCVideoFrame?
     
@@ -27,10 +21,6 @@ class MyVideoView: RTCEAGLVideoView {
 
 class ParticipantView: UIView {
     private let videoView = MyVideoView()
-    private lazy var ivSignal = {
-        let imageView = UIImageView(image: UIImage(named: Signal.high.rawValue))
-        return imageView
-    }()
     private lazy var ivMuteBottom = {
         let imageView = UIImageView(image: UIImage(named: "conference_iv_mute_src"))
         imageView.isHidden = true
@@ -161,27 +151,6 @@ class ParticipantView: UIView {
             return
         }
 //        MyShowLogger.instance.showLogger.debug("participantBean--->\(participantBean), videoView.superview--->\(videoView.superview)")
-        if (ivSignal.superview == nil) {
-            addSubview(ivSignal)
-            ivSignal.snp.makeConstraints { make in
-                make.width.height.equalTo(20.screenAdapt())
-                make.left.top.equalToSuperview().offset(2.screenAdapt())
-            }
-            addSubview(participantInfoViewBottom)
-            participantInfoViewBottom.snp.makeConstraints { make in
-                make.height.equalTo(20.screenAdapt())
-                make.left.equalToSuperview().offset(2.screenAdapt())
-                make.right.lessThanOrEqualToSuperview().offset(-2.screenAdapt())
-                make.bottom.equalToSuperview().offset(-2.screenAdapt())
-            }
-            addSubview(participantInfoViewTop)
-            participantInfoViewTop.snp.makeConstraints { make in
-                make.height.equalTo(20.screenAdapt())
-                make.left.equalTo(ivSignal.snp.right).offset(5.screenAdapt())
-                make.right.lessThanOrEqualToSuperview().offset(-2.screenAdapt())
-                make.top.equalToSuperview().offset(2.screenAdapt())
-            }
-        }
         if (participantInfoViewBottom.superview == nil) {
             addSubview(participantInfoViewBottom)
             participantInfoViewBottom.snp.makeConstraints { make in
@@ -195,7 +164,7 @@ class ParticipantView: UIView {
             addSubview(participantInfoViewTop)
             participantInfoViewTop.snp.makeConstraints { make in
                 make.height.equalTo(20.screenAdapt())
-                make.left.equalTo(ivSignal.snp.right).offset(5.screenAdapt())
+                make.left.equalToSuperview().offset(2.screenAdapt())
                 make.right.lessThanOrEqualToSuperview().offset(-2.screenAdapt())
                 make.top.equalToSuperview().offset(2.screenAdapt())
             }
@@ -261,15 +230,6 @@ class ParticipantView: UIView {
         videoTrack?.add(videoView)
         self.videoTrack = videoTrack
     }
-    
-//    func setMediaStream(_ mediaStream: RTCMediaStream?) {
-//        guard let videoTrack = mediaStream?.videoTracks.first else {
-//            return
-//        }
-//        self.videoTrack?.remove(videoView)
-//        videoTrack.add(videoView)
-//        self.videoTrack = videoTrack
-//    }
     
     func getCurrentVideoFrame() -> RTCVideoFrame? {
         return videoView.curRTCVideoFrame

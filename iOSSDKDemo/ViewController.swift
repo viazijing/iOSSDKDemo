@@ -218,7 +218,7 @@ class ViewController: UIViewController {
         }
         let micEnable = PermissionType.AUDIO_RECORD.permissionChecker.isAuthorized()
         let cameraEnable = PermissionType.CAMERA.permissionChecker.isAuthorized()
-        navigationController?.pushViewController(ConferenceViewController(serverAddr: serverAddr
+        navigationController?.pushViewController(ConferenceDemoViewController(serverAddr: serverAddr
                                                                           , conferenceRoomNum: conferenceRoomNum
                                                                           , pwd: pwd
                                                                           , name: name

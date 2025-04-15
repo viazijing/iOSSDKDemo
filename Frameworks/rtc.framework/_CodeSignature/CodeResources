@@ -4,10 +4,6 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>.DS_Store</key>
-		<data>
-		3y++sUAKzaCQmjLBz2v0kvESHgc=
-		</data>
 		<key>Headers/rtc-Swift.h</key>
 		<data>
 		u3FiYDihObyI5TZuy+NWrzNzIus=
@@ -22,7 +18,7 @@
 		</data>
 		<key>Modules/rtc.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		k7KJ0iOzJd2M3O3lvJynrRhq4nI=
+		jy7Jiq/mZK313pxTMAvWvkO+sjc=
 		</data>
 		<key>Modules/rtc.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
@@ -34,7 +30,7 @@
 		</data>
 		<key>Modules/rtc.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		o6pn5FI8s44u60X6i4BufddR4fI=
+		sHE+f6Ygi6lgqIyTeXydwF3sxpo=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -57,7 +53,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			9fB79+kQJlpGj3IZuXM4xPj/TZO41bkZcNDiDq+BdkU=
+			k+QxG9myye0RAqFK4kxMPgMLD5NpG6Bv837MzeYgZz4=
 			</data>
 		</dict>
 		<key>Modules/rtc.swiftmodule/arm64-apple-ios.abi.json</key>
@@ -78,7 +74,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			vM4B9eEOXyhG0UwD644f5Odhg3/u13SsXddnMqLu634=
+			0ug4cIFx7YRxGLenfODWfHMKm/QnUlhIYIfFoOe/2qE=
 			</data>
 		</dict>
 	</dict>

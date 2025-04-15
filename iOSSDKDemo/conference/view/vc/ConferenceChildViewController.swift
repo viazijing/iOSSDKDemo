@@ -20,8 +20,6 @@ open class ConferenceChildViewController: UIViewController {
     }
     
     open override func viewDidAppear(_ animated: Bool) {
-        // 添加状态栏方向改变观察者
-        NotificationCenter.default.addObserver(self, selector: #selector(onOrientationChanged), name: UIApplication.didChangeStatusBarOrientationNotification, object: nil)
     }
     
     open override func viewWillDisappear(_ animated: Bool) {
@@ -39,16 +37,6 @@ open class ConferenceChildViewController: UIViewController {
     
     public func initData() {
         
-    }
-    
-    @objc open func onOrientationChanged() {
-        guard let conferenceManager = (parent?.parent as? ConferenceViewController)?.conferenceManager else {
-                return
-        }
-        Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false) { [weak self] timer in
-            guard let self = self else { return }
-            self.onLayout(conferenceManager: conferenceManager, layoutBeans: conferenceManager.getCurrentLayout())
-        }
     }
 
     func rtcVideoFrame2UIImage(frame: RTCVideoFrame) -> UIImage? {
@@ -85,7 +73,7 @@ open class ConferenceChildViewController: UIViewController {
             let presentationLayoutBean = layoutBeans.remove(at: presentationLayoutBeanIndex)
             layoutBeans.insert(presentationLayoutBean, at: 0)
         }
-        let conferenceViewController = AppUtil.findViewController(viewControllerType: ConferenceViewController.self)
+        let conferenceViewController = AppUtil.findViewController(viewControllerType: ConferenceDemoViewController.self)
         // 在没有其他人时，本地视频在第一个的位置
         if (layoutBeans.count == 1 && layoutBeans[0].participantUUID == conferenceViewController?.conferenceManager.getParticipantUUID()) {
             return
