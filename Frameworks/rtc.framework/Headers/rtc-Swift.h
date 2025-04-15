@@ -277,8 +277,10 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
+@import CoreMedia;
 @import Foundation;
 @import ObjectiveC;
+@import ReplayKit;
 @import WebRTC;
 #endif
 
@@ -369,6 +371,37 @@ SWIFT_CLASS("_TtC3rtc10RTCManager")
 
 
 @interface RTCManager (SWIFT_EXTENSION(rtc)) <RTCPeerConnectionDelegate>
+- (void)peerConnection:(RTCPeerConnection * _Nonnull)peerConnection didChangeSignalingState:(RTCSignalingState)stateChanged;
+- (void)peerConnection:(RTCPeerConnection * _Nonnull)peerConnection didAddStream:(RTCMediaStream * _Nonnull)stream;
+- (void)peerConnection:(RTCPeerConnection * _Nonnull)peerConnection didRemoveStream:(RTCMediaStream * _Nonnull)stream;
+- (void)peerConnection:(RTCPeerConnection * _Nonnull)peerConnection didVADChange:(BOOL)detected;
+- (void)peerConnection:(RTCPeerConnection * _Nonnull)peerConnection didHowlingStateChange:(int32_t)level;
+- (void)peerConnectionShouldNegotiate:(RTCPeerConnection * _Nonnull)peerConnection;
+- (void)peerConnection:(RTCPeerConnection * _Nonnull)peerConnection didChangeIceConnectionState:(RTCIceConnectionState)newState;
+- (void)peerConnection:(RTCPeerConnection * _Nonnull)peerConnection didChangeIceGatheringState:(RTCIceGatheringState)newState;
+- (void)peerConnection:(RTCPeerConnection * _Nonnull)peerConnection didGenerateIceCandidate:(RTCIceCandidate * _Nonnull)candidate;
+- (void)peerConnection:(RTCPeerConnection * _Nonnull)peerConnection didRemoveIceCandidates:(NSArray<RTCIceCandidate *> * _Nonnull)candidates;
+- (void)peerConnection:(RTCPeerConnection * _Nonnull)peerConnection didOpenDataChannel:(RTCDataChannel * _Nonnull)dataChannel;
+@end
+
+
+SWIFT_CLASS("_TtC3rtc16RTCSampleHandler")
+@interface RTCSampleHandler : RPBroadcastSampleHandler
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (void)broadcastStartedWithSetupInfo:(NSDictionary<NSString *, NSObject *> * _Nullable)setupInfo;
+- (void)broadcastPaused;
+- (void)broadcastResumed;
+- (void)broadcastFinished;
+- (void)processSampleBuffer:(CMSampleBufferRef _Nonnull)sampleBuffer withType:(RPSampleBufferType)sampleBufferType;
+@end
+
+
+@interface RTCSampleHandler (SWIFT_EXTENSION(rtc)) <RTCVideoCapturerDelegate>
+- (void)capturer:(RTCVideoCapturer * _Nonnull)capturer didCaptureVideoFrame:(RTCVideoFrame * _Nonnull)frame;
+@end
+
+
+@interface RTCSampleHandler (SWIFT_EXTENSION(rtc)) <RTCPeerConnectionDelegate>
 - (void)peerConnection:(RTCPeerConnection * _Nonnull)peerConnection didChangeSignalingState:(RTCSignalingState)stateChanged;
 - (void)peerConnection:(RTCPeerConnection * _Nonnull)peerConnection didAddStream:(RTCMediaStream * _Nonnull)stream;
 - (void)peerConnection:(RTCPeerConnection * _Nonnull)peerConnection didRemoveStream:(RTCMediaStream * _Nonnull)stream;

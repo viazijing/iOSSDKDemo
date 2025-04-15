@@ -1,6 +1,6 @@
 //
 //  TestConferenceChildViewController.swift
-//  fastsdk
+//  iOSSDKDemo
 //
 //  Created by Mac on 2024/4/1.
 //

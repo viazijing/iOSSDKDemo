@@ -283,9 +283,7 @@ class ConferenceDemoViewController: ViewController {
 //                builder.setAccount(account)
 //            }
 //        }
-//        if let groupId = ConfigUtil.getGroupId() {
-//            builder.setGroupId(groupId)
-//        }
+        builder.setGroupId("group.com.viazijing.iossdkdemo.iOSSDKDemo")
 //        builder.setUpdateBandwidthAfterAck(false)
 //        builder.setLogLevel(.none)
         conferenceManager = builder.build()
@@ -756,38 +754,30 @@ class ConferenceDemoViewController: ViewController {
     }
     
     private func presentScreen() {
-        //        showLoadingUI()
-//        conferenceManager.getPresentationManager()?.startScreenCapture(preferredExtension: ConfigUtil.getPreferredExtension() ?? "", onSuccess: { [weak self] in
-//            MyShowLogger.instance.showLogger.info("startScreenCapture success")
-//            DispatchQueue.main.async { [weak self] in
-//                guard let self = self else { return }
-//                for viewController in self.viewControllers {
-//                    viewController.removeFromParent()
-//                }
-//                self.viewControllers.removeAll()
-//                self.viewControllers.append(ConferencePresentScreenViewController())
-//                self.curPosition = 0
-//                self.pageViewController.setViewControllers([self.viewControllers[self.curPosition]], direction: .forward, animated: false)
-//                if self.presentationView.subviews.count == 2
-//                    , let ivPresentation = self.presentationView.subviews[0] as? UIButton
-//                    , let lbPresentation = self.presentationView.subviews[1] as? UIButton {
-//                    ivPresentation.setImage(UIImage(named: "conference_iv_presentation_src_selected"), for: .normal)
-//                    lbPresentation.setTitle("停止共享", for: .normal)
-//                }
-//                self.setPageViewControllerScrollEnabled(false)
-//                self.orientationChange2Landscape()
-//                // 返回桌面
-//                let toBackgroundControl = UIControl()
-//                toBackgroundControl.sendAction(#selector(NSXPCConnection.suspend), to: UIApplication.shared, for: nil)
-//                self.hideLoadingUI()
-//            }
-//        }, onFailure: { [weak self] error in
-//            MyShowLogger.instance.showLogger.info("startScreenCapture failure")
-//            DispatchQueue.main.async { [weak self] in
-//                guard let self = self else { return }
-//                self.hideLoadingUI()
-//            }
-//        })
+        conferenceManager.getPresentationManager()?.startScreenCapture(preferredExtension: "com.viazijing.iossdkdemo.iOSSDKDemo.Presentation", onSuccess: { [weak self] in
+            MyShowLogger.instance.showLogger.info("startScreenCapture success")
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                for viewController in self.viewControllers {
+                    viewController.removeFromParent()
+                }
+                self.viewControllers.removeAll()
+                self.viewControllers.append(ConferenceDemoPresentScreenViewController())
+                self.curPosition = 0
+                self.pageViewController.setViewControllers([self.viewControllers[self.curPosition]], direction: .forward, animated: false)
+                if self.presentationView.subviews.count == 2
+                    , let ivPresentation = self.presentationView.subviews[0] as? UIButton
+                    , let lbPresentation = self.presentationView.subviews[1] as? UIButton {
+                    ivPresentation.setImage(UIImage(named: "conference_iv_presentation_src_selected"), for: .normal)
+                    lbPresentation.setTitle("停止共享", for: .normal)
+                }
+                // 返回桌面
+                let toBackgroundControl = UIControl()
+                toBackgroundControl.sendAction(#selector(NSXPCConnection.suspend), to: UIApplication.shared, for: nil)
+            }
+        }, onFailure: { [weak self] error in
+            MyShowLogger.instance.showLogger.info("startScreenCapture failure")
+        })
     }
     
     private func presentWhiteboard() {

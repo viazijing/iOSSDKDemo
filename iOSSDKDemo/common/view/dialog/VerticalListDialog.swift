@@ -1,8 +1,9 @@
 //
 //  VerticalListDialog.swift
-//  fastsdk
+//  iOSSDKDemo
 //
 //  Created by Mac on 2024/10/12.
+//  共享图片时，展示单张图片的界面
 //
 
 import Foundation

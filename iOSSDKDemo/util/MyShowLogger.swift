@@ -3,6 +3,7 @@
 //  iOSSDKDemo
 //
 //  Created by Mac on 2025/4/11.
+//  日志工具类
 //
 
 import Foundation

@@ -1,8 +1,9 @@
 //
 //  ImgViewController.swift
-//  fastsdk
+//  iOSSDKDemo
 //
 //  Created by Mac on 2024/2/19.
+//  共享图片时，展示单张图片的界面
 //
 
 import UIKit
