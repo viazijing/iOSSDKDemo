@@ -10,7 +10,6 @@
 		04238F692DA8AFDF002889E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04238F682DA8AFDF002889E4 /* AppDelegate.swift */; };
 		04238F6D2DA8AFDF002889E4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04238F6C2DA8AFDF002889E4 /* ViewController.swift */; };
 		04238F722DA8AFE1002889E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04238F712DA8AFE1002889E4 /* Assets.xcassets */; };
-		04238F902DA8BD2C002889E4 /* Zip.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 04238F892DA8BD2C002889E4 /* Zip.framework.dSYM */; };
 		04238F912DA8BDD3002889E4 /* common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04238F852DA8BD2C002889E4 /* common.framework */; };
 		04238F922DA8BDD3002889E4 /* common.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04238F852DA8BD2C002889E4 /* common.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		04238F932DA8BDD4002889E4 /* net.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04238F862DA8BD2C002889E4 /* net.framework */; };
@@ -19,14 +18,6 @@
 		04238F962DA8BDD6002889E4 /* rtc.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04238F872DA8BD2C002889E4 /* rtc.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		04238F972DA8BDD7002889E4 /* WebRTC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04238F842DA8BD2B002889E4 /* WebRTC.framework */; };
 		04238F982DA8BDD7002889E4 /* WebRTC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04238F842DA8BD2B002889E4 /* WebRTC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		04238F992DA8BDD8002889E4 /* Zip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04238F882DA8BD2C002889E4 /* Zip.framework */; };
-		04238F9A2DA8BDD8002889E4 /* Zip.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04238F882DA8BD2C002889E4 /* Zip.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		04238F9F2DA8C093002889E4 /* SnapKit.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 04238F9C2DA8C093002889E4 /* SnapKit.framework.dSYM */; };
-		04238FA02DA8C7AA002889E4 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04238F9B2DA8C093002889E4 /* SnapKit.framework */; };
-		04238FA12DA8C7AA002889E4 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04238F9B2DA8C093002889E4 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		04238FAD2DA8CA0F002889E4 /* TZImagePickerController.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 04238FAA2DA8CA0F002889E4 /* TZImagePickerController.framework.dSYM */; };
-		04238FAE2DA8CA15002889E4 /* TZImagePickerController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04238FA92DA8CA0F002889E4 /* TZImagePickerController.framework */; };
-		04238FAF2DA8CA15002889E4 /* TZImagePickerController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04238FA92DA8CA0F002889E4 /* TZImagePickerController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		042422C52DA90B3A00AD7E43 /* permission.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042422C32DA90B2E00AD7E43 /* permission.framework */; };
 		042422C62DA90B3A00AD7E43 /* permission.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 042422C32DA90B2E00AD7E43 /* permission.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		042422C92DA90D1C00AD7E43 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042422C82DA90D1C00AD7E43 /* UIColorExtension.swift */; };
@@ -54,6 +45,12 @@
 		042423182DAE3BA500AD7E43 /* ConferenceDemoPresentScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042423172DAE3BA500AD7E43 /* ConferenceDemoPresentScreenViewController.swift */; };
 		0424231D2DAF479300AD7E43 /* StatisticsDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0424231C2DAF479300AD7E43 /* StatisticsDialog.swift */; };
 		042423202DAF47AA00AD7E43 /* ExcelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0424231F2DAF47AA00AD7E43 /* ExcelView.swift */; };
+		0424235E2DAF86C500AD7E43 /* Zip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0424235B2DAF86C400AD7E43 /* Zip.framework */; };
+		0424235F2DAF86C500AD7E43 /* Zip.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0424235B2DAF86C400AD7E43 /* Zip.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		042423602DAF86C500AD7E43 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0424235C2DAF86C400AD7E43 /* SnapKit.framework */; };
+		042423612DAF86C500AD7E43 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0424235C2DAF86C400AD7E43 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		042423622DAF86C500AD7E43 /* TZImagePickerController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0424235D2DAF86C500AD7E43 /* TZImagePickerController.framework */; };
+		042423632DAF86C500AD7E43 /* TZImagePickerController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0424235D2DAF86C500AD7E43 /* TZImagePickerController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,14 +70,14 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				042423632DAF86C500AD7E43 /* TZImagePickerController.framework in Embed Frameworks */,
 				04238F942DA8BDD4002889E4 /* net.framework in Embed Frameworks */,
 				042422C62DA90B3A00AD7E43 /* permission.framework in Embed Frameworks */,
 				04238F922DA8BDD3002889E4 /* common.framework in Embed Frameworks */,
+				042423612DAF86C500AD7E43 /* SnapKit.framework in Embed Frameworks */,
 				04238F962DA8BDD6002889E4 /* rtc.framework in Embed Frameworks */,
-				04238FAF2DA8CA15002889E4 /* TZImagePickerController.framework in Embed Frameworks */,
-				04238FA12DA8C7AA002889E4 /* SnapKit.framework in Embed Frameworks */,
+				0424235F2DAF86C500AD7E43 /* Zip.framework in Embed Frameworks */,
 				04238F982DA8BDD7002889E4 /* WebRTC.framework in Embed Frameworks */,
-				04238F9A2DA8BDD8002889E4 /* Zip.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -119,12 +116,6 @@
 		04238F852DA8BD2C002889E4 /* common.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = common.framework; sourceTree = "<group>"; };
 		04238F862DA8BD2C002889E4 /* net.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = net.framework; sourceTree = "<group>"; };
 		04238F872DA8BD2C002889E4 /* rtc.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = rtc.framework; sourceTree = "<group>"; };
-		04238F882DA8BD2C002889E4 /* Zip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Zip.framework; sourceTree = "<group>"; };
-		04238F892DA8BD2C002889E4 /* Zip.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = Zip.framework.dSYM; sourceTree = "<group>"; };
-		04238F9B2DA8C093002889E4 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SnapKit.framework; sourceTree = "<group>"; };
-		04238F9C2DA8C093002889E4 /* SnapKit.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = SnapKit.framework.dSYM; sourceTree = "<group>"; };
-		04238FA92DA8CA0F002889E4 /* TZImagePickerController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TZImagePickerController.framework; sourceTree = "<group>"; };
-		04238FAA2DA8CA0F002889E4 /* TZImagePickerController.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = TZImagePickerController.framework.dSYM; sourceTree = "<group>"; };
 		042422C32DA90B2E00AD7E43 /* permission.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = permission.framework; sourceTree = "<group>"; };
 		042422C82DA90D1C00AD7E43 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		042422CB2DA90E8000AD7E43 /* MyShowLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyShowLogger.swift; sourceTree = "<group>"; };
@@ -152,6 +143,9 @@
 		042423172DAE3BA500AD7E43 /* ConferenceDemoPresentScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConferenceDemoPresentScreenViewController.swift; sourceTree = "<group>"; };
 		0424231C2DAF479300AD7E43 /* StatisticsDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsDialog.swift; sourceTree = "<group>"; };
 		0424231F2DAF47AA00AD7E43 /* ExcelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExcelView.swift; sourceTree = "<group>"; };
+		0424235B2DAF86C400AD7E43 /* Zip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Zip.framework; sourceTree = "<group>"; };
+		0424235C2DAF86C400AD7E43 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SnapKit.framework; sourceTree = "<group>"; };
+		0424235D2DAF86C500AD7E43 /* TZImagePickerController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TZImagePickerController.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,14 +153,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				042423622DAF86C500AD7E43 /* TZImagePickerController.framework in Frameworks */,
 				04238F912DA8BDD3002889E4 /* common.framework in Frameworks */,
 				042422C52DA90B3A00AD7E43 /* permission.framework in Frameworks */,
 				04238F932DA8BDD4002889E4 /* net.framework in Frameworks */,
+				042423602DAF86C500AD7E43 /* SnapKit.framework in Frameworks */,
 				04238F952DA8BDD5002889E4 /* rtc.framework in Frameworks */,
-				04238FAE2DA8CA15002889E4 /* TZImagePickerController.framework in Frameworks */,
-				04238FA02DA8C7AA002889E4 /* SnapKit.framework in Frameworks */,
+				0424235E2DAF86C500AD7E43 /* Zip.framework in Frameworks */,
 				04238F972DA8BDD7002889E4 /* WebRTC.framework in Frameworks */,
-				04238F992DA8BDD8002889E4 /* Zip.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,44 +215,17 @@
 		04238F7C2DA8B4A6002889E4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0424235C2DAF86C400AD7E43 /* SnapKit.framework */,
+				0424235D2DAF86C500AD7E43 /* TZImagePickerController.framework */,
+				0424235B2DAF86C400AD7E43 /* Zip.framework */,
 				04238F852DA8BD2C002889E4 /* common.framework */,
 				04238F862DA8BD2C002889E4 /* net.framework */,
 				042422C32DA90B2E00AD7E43 /* permission.framework */,
 				04238F872DA8BD2C002889E4 /* rtc.framework */,
 				04238F842DA8BD2B002889E4 /* WebRTC.framework */,
-				04238F8A2DA8BD2C002889E4 /* Zip */,
-				04238F9D2DA8C093002889E4 /* SnapKit */,
-				04238FAB2DA8CA0F002889E4 /* TZImagePickerController */,
 				042423052DAE39D000AD7E43 /* ReplayKit.framework */,
 			);
 			path = Frameworks;
-			sourceTree = "<group>";
-		};
-		04238F8A2DA8BD2C002889E4 /* Zip */ = {
-			isa = PBXGroup;
-			children = (
-				04238F882DA8BD2C002889E4 /* Zip.framework */,
-				04238F892DA8BD2C002889E4 /* Zip.framework.dSYM */,
-			);
-			path = Zip;
-			sourceTree = "<group>";
-		};
-		04238F9D2DA8C093002889E4 /* SnapKit */ = {
-			isa = PBXGroup;
-			children = (
-				04238F9B2DA8C093002889E4 /* SnapKit.framework */,
-				04238F9C2DA8C093002889E4 /* SnapKit.framework.dSYM */,
-			);
-			path = SnapKit;
-			sourceTree = "<group>";
-		};
-		04238FAB2DA8CA0F002889E4 /* TZImagePickerController */ = {
-			isa = PBXGroup;
-			children = (
-				04238FA92DA8CA0F002889E4 /* TZImagePickerController.framework */,
-				04238FAA2DA8CA0F002889E4 /* TZImagePickerController.framework.dSYM */,
-			);
-			path = TZImagePickerController;
 			sourceTree = "<group>";
 		};
 		042422C72DA90D0500AD7E43 /* extension */ = {
@@ -465,9 +432,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04238FAD2DA8CA0F002889E4 /* TZImagePickerController.framework.dSYM in Resources */,
-				04238F902DA8BD2C002889E4 /* Zip.framework.dSYM in Resources */,
-				04238F9F2DA8C093002889E4 /* SnapKit.framework.dSYM in Resources */,
 				04238F722DA8AFE1002889E4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
