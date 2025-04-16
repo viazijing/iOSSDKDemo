@@ -669,6 +669,11 @@
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iOSSDKDemo/Info.plist;
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "需要您的同意，才能使用蓝牙";
+				INFOPLIST_KEY_NSCameraUsageDescription = "本应用在进行视频通话时需要您授权使用本机的摄像头功能。";
+				INFOPLIST_KEY_NSLocationUsageDescription = "需要您的同意，才能使用位置";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "本应用在进行音视频通话时需要您授权使用本机的麦克风功能。";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "需要的同意，才能访问相册";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -679,7 +684,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.viazijing.iossdkdemo.iOSSDKDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.viazijing.iossdkdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -707,6 +712,11 @@
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iOSSDKDemo/Info.plist;
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "需要您的同意，才能使用蓝牙";
+				INFOPLIST_KEY_NSCameraUsageDescription = "本应用在进行视频通话时需要您授权使用本机的摄像头功能。";
+				INFOPLIST_KEY_NSLocationUsageDescription = "需要您的同意，才能使用位置";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "本应用在进行音视频通话时需要您授权使用本机的麦克风功能。";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "需要的同意，才能访问相册";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -717,7 +727,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.viazijing.iossdkdemo.iOSSDKDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.viazijing.iossdkdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -747,7 +757,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.viazijing.iossdkdemo.iOSSDKDemo.Presentation;
+				PRODUCT_BUNDLE_IDENTIFIER = com.viazijing.iossdkdemo.presentation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -778,7 +788,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.viazijing.iossdkdemo.iOSSDKDemo.Presentation;
+				PRODUCT_BUNDLE_IDENTIFIER = com.viazijing.iossdkdemo.presentation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;

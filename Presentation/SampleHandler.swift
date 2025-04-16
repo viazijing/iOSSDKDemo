@@ -12,7 +12,7 @@ class SampleHandler: RTCSampleHandler {
     
     public override init() {
         super.init()
-        groupUserDefaultsHelper = GroupUserDefaultsHelper(groupId: "group.com.viazijing.iossdkdemo.iOSSDKDemo")
+        groupUserDefaultsHelper = GroupUserDefaultsHelper(groupId: "group.com.viazijing.iossdkdemo")
     }
     
     override func broadcastStarted(withSetupInfo setupInfo: [String : NSObject]?) {

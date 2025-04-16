@@ -293,7 +293,7 @@ class ConferenceDemoViewController: ViewController {
 //                builder.setAccount(account)
 //            }
 //        }
-        builder.setGroupId("group.com.viazijing.iossdkdemo.iOSSDKDemo")
+        builder.setGroupId("group.com.viazijing.iossdkdemo")
 //        builder.setUpdateBandwidthAfterAck(false)
 //        builder.setLogLevel(.none)
         conferenceManager = builder.build()
@@ -769,7 +769,7 @@ class ConferenceDemoViewController: ViewController {
     }
     
     private func presentScreen() {
-        conferenceManager.getPresentationManager()?.startScreenCapture(preferredExtension: "com.viazijing.iossdkdemo.iOSSDKDemo.Presentation", onSuccess: { [weak self] in
+        conferenceManager.getPresentationManager()?.startScreenCapture(preferredExtension: "com.viazijing.iossdkdemo.presentation", onSuccess: { [weak self] in
             MyShowLogger.instance.showLogger.info("startScreenCapture success")
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
