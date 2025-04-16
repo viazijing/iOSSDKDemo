@@ -52,6 +52,8 @@
 		042423122DAE3A5B00AD7E43 /* rtc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04238F872DA8BD2C002889E4 /* rtc.framework */; };
 		042423132DAE3A5B00AD7E43 /* rtc.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04238F872DA8BD2C002889E4 /* rtc.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		042423182DAE3BA500AD7E43 /* ConferenceDemoPresentScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042423172DAE3BA500AD7E43 /* ConferenceDemoPresentScreenViewController.swift */; };
+		0424231D2DAF479300AD7E43 /* StatisticsDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0424231C2DAF479300AD7E43 /* StatisticsDialog.swift */; };
+		042423202DAF47AA00AD7E43 /* ExcelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0424231F2DAF47AA00AD7E43 /* ExcelView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +150,8 @@
 		042423152DAE3ADC00AD7E43 /* iOSSDKDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOSSDKDemo.entitlements; sourceTree = "<group>"; };
 		042423162DAE3B0F00AD7E43 /* Presentation.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Presentation.entitlements; sourceTree = "<group>"; };
 		042423172DAE3BA500AD7E43 /* ConferenceDemoPresentScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConferenceDemoPresentScreenViewController.swift; sourceTree = "<group>"; };
+		0424231C2DAF479300AD7E43 /* StatisticsDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsDialog.swift; sourceTree = "<group>"; };
+		0424231F2DAF47AA00AD7E43 /* ExcelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExcelView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,7 +303,9 @@
 		042422E12DA9152300AD7E43 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				0424231B2DAF478C00AD7E43 /* dialog */,
 				042422EB2DA9175F00AD7E43 /* vc */,
+				0424231E2DAF479F00AD7E43 /* widget */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -358,6 +364,22 @@
 				0424230A2DAE39D000AD7E43 /* Info.plist */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		0424231B2DAF478C00AD7E43 /* dialog */ = {
+			isa = PBXGroup;
+			children = (
+				0424231C2DAF479300AD7E43 /* StatisticsDialog.swift */,
+			);
+			path = dialog;
+			sourceTree = "<group>";
+		};
+		0424231E2DAF479F00AD7E43 /* widget */ = {
+			isa = PBXGroup;
+			children = (
+				0424231F2DAF47AA00AD7E43 /* ExcelView.swift */,
+			);
+			path = widget;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -475,12 +497,14 @@
 				042422F42DAD130E00AD7E43 /* ConferenceDemoDefaultViewController.swift in Sources */,
 				042422E32DA9153100AD7E43 /* VerticalListDialog.swift in Sources */,
 				042422D52DA910DA00AD7E43 /* DrawingBoardView.swift in Sources */,
+				0424231D2DAF479300AD7E43 /* StatisticsDialog.swift in Sources */,
 				042422DD2DA9126500AD7E43 /* PaintWidthView.swift in Sources */,
 				042422EE2DA9177700AD7E43 /* ImgViewController.swift in Sources */,
 				042422C92DA90D1C00AD7E43 /* UIColorExtension.swift in Sources */,
 				042422E52DA9159800AD7E43 /* DividerLine.swift in Sources */,
 				042422D72DA9110000AD7E43 /* WhiteBoardFuncBar.swift in Sources */,
 				042422DF2DA9132700AD7E43 /* MyHttpHepler.swift in Sources */,
+				042423202DAF47AA00AD7E43 /* ExcelView.swift in Sources */,
 				042422F62DADEBC500AD7E43 /* ConferenceDemoPresentImgViewController.swift in Sources */,
 				042422F22DACE9B100AD7E43 /* ConferenceDemoViewController.swift in Sources */,
 				042422D92DA9113D00AD7E43 /* WhiteBoardFuncView.swift in Sources */,

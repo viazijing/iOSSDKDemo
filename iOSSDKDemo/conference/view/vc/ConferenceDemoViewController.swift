@@ -77,6 +77,16 @@ class ConferenceDemoViewController: ViewController {
             make.height.equalTo(54.screenAdapt())
             make.left.right.bottom.equalToSuperview()
         }
+        // 本地信号图片标识控件
+        let btnSignal = UIButton()
+        btnSignal.setImage(UIImage(named: "conference_iv_local_signal_src_5"), for: .normal)
+        btnSignal.addTarget(self, action: #selector(showStatisticsDialog))
+        titleBar.addSubview(btnSignal)
+        btnSignal.snp.makeConstraints { make in
+            make.width.height.equalTo(30.screenAdapt())
+            make.left.equalToSuperview().offset(5.screenAdapt())
+            make.centerY.equalToSuperview()
+        }
         // 会议信息
         titleBar.addSubview(conferenceInfoView)
         conferenceInfoView.snp.makeConstraints { make in
@@ -516,6 +526,11 @@ class ConferenceDemoViewController: ViewController {
         bottomBarContainer.isHidden = false
         // 翻转摄像头按钮
         btnSwitchCamera.isHidden = false
+    }
+    
+    @objc private func showStatisticsDialog() {
+        hideTitleBarAndBottomBar()
+        present(StatisticsDialog(), animated: true)
     }
     
     @objc private func quit() {
@@ -1137,52 +1152,18 @@ extension ConferenceDemoViewController: OnConferenceListener {
         }
         MyShowLogger.instance.showLogger.error("onDisconnected, e--->\(e.msg)")
         conferenceManager.quit()
-//        DispatchQueue.main.async { [weak self] in
-//            guard let self = self else { return }
-//            self.dismissAllPresentedViewControllers { [weak self] in
-//                MyShowLogger.instance.showLogger.debug("退出会议界面")
-//                guard let self = self else { return }
-//                var message = "会议结束"
-//                if (e.msg == "Call disconnected") {
-//                    message = "被主持人移出会议。"
-//                }
-//                if (e.msg == "Disconnected by another participant") {
-//                    message = "其他参会者将你踢出了会议室。"
-//                }
-//                if (e.msg == "1434/guest not allowed") {
-//                    message = "禁止未登录用户入会。"
-//                }
-//                if (e.msg == "1402/up to meeting max calls") {
-//                    message = "超过会议最大呼叫数。"
-//                }
-//                if (e.msg == "User initiated disconnect") {
-//                    message = "主持人中断了会议。"
-//                }
-//                if (e.msg == "Timeout waiting for conference host to join or permit access to locked conference") {
-//                    message = "主持人超时未处理，将自动退出等候室。"
-//                }
-//                if (e.msg == "Request failed: forbidden (403)") {
-//                    message = "会议正在结束中"
-//                }
-//                if (e.msg == "1434/guest not allowed") {
-//                    message = "不允许访客入会"
-//                }
-//                if (e.msg == "1402/up to meeting max calls") {
-//                    message = "超过会议最大呼叫数"
-//                }
-//                if (e.msg == "1418/adhoc disabled") {
-//                    message = "会议室只用于预约，即时呼叫失败"
-//                }
-//                if (e.msg == "与服务器连接超时") {
-//                    message = "与服务器连接超时"
-//                }
-//                CommonDialog(title: nil, message: message, negativeButtonText: nil, positiveButtonHandler: { [weak self] _ in
-//                    guard let self = self else { return }
-//                    self.navigationController?.popViewController(animated: true)
-//                })
-//                .show(uiViewController: self, cancelable: false)
-//            }
-//        }
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.dismissAllPresentedViewControllers { [weak self] in
+                MyShowLogger.instance.showLogger.debug("退出会议界面")
+                guard let self = self else { return }
+                CommonDialog(title: nil, message: e.msg, negativeButtonText: nil, positiveButtonHandler: { [weak self] _ in
+                    guard let self = self else { return }
+                    self.navigationController?.popViewController(animated: true)
+                })
+                .show(uiViewController: self, cancelable: false)
+            }
+        }
     }
     
     func onConferenceStatusUpdate(_ conferenceStatusBean: rtc.ConferenceStatusBean) {

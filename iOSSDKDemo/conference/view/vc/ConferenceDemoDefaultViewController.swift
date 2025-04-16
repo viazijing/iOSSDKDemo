@@ -3,6 +3,7 @@
 //  iOSSDKDemo
 //
 //  Created by Mac on 2025/4/14.
+//  会中显示平台布局的默认界面
 //
 
 import common

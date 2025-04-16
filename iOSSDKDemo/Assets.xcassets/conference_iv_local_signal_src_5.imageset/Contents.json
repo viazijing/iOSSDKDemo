@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "conference_iv_local_signal_src_5.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "conference_iv_local_signal_src_5@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "conference_iv_local_signal_src_5@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

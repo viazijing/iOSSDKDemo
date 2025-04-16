@@ -3,6 +3,7 @@
 //  iOSSDKDemo
 //
 //  Created by Mac on 2025/4/15.
+//  会中自己共享 PDF 时的界面
 //
 
 import common

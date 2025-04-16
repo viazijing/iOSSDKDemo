@@ -3,6 +3,7 @@
 //  iOSSDKDemo
 //
 //  Created by Mac on 2024/4/1.
+//  会中各界面基类
 //
 
 import Foundation
