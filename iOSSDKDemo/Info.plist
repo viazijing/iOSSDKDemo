@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSCameraUsageDescription</key>
+	<string>本应用在进行视频通话时需要您授权使用本机的摄像头功能。</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>本应用在进行音视频通话时需要您授权使用本机的麦克风功能。</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

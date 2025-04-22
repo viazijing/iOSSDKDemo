@@ -272,13 +272,13 @@ class ConferenceDemoViewController: ViewController {
         return button
     }()
     lazy var conferenceManager: ConferenceManager = {
-        let builder = ConferenceManager.Builder()
         var url: URL?
         if (serverAddr.hasPrefix("http")) {
             url = URL(string: serverAddr)
         } else {
             url = URL(string: "https://\(serverAddr)")
         }
+        let builder = ConferenceManager.Builder()
         if let scheme = url?.scheme {
             builder.setScheme(scheme)
         }
@@ -296,7 +296,7 @@ class ConferenceDemoViewController: ViewController {
         builder.setGroupId("group.com.viazijing.iossdkdemo")
 //        builder.setUpdateBandwidthAfterAck(false)
 //        builder.setLogLevel(.none)
-        conferenceManager = builder.build()
+        let conferenceManager = builder.build()
         conferenceManager.setOnConferenceListener(self)
         return conferenceManager
     }()
@@ -1131,10 +1131,16 @@ extension ConferenceDemoViewController: OnConferenceListener {
         }
     }
     
+    /**
+     成功加入会议时回调，但此时还没有建立媒体通讯
+     */
     func onConnected() {
         MyShowLogger.instance.showLogger.info("onConnected")
     }
     
+    /**
+     媒体通讯成功建立时回调，该回调后即可正常调用媒体相关功能
+     */
     func onCallSuccess() {
         MyShowLogger.instance.showLogger.info("onCallSuccess")
         DispatchQueue.main.async { [weak self] in
@@ -1145,6 +1151,10 @@ extension ConferenceDemoViewController: OnConferenceListener {
         }
     }
     
+    /**
+     退出会议时回调
+     @param e：退会原因，被服务器退出会议或者因网络问题退出会议时返回对应信息，正常退出时 e 为 nil
+     */
     func onDisconnected(_ e: ViaZijingError?) {
         guard let e = e else {
             MyShowLogger.instance.showLogger.info("正常退出")
@@ -1166,6 +1176,10 @@ extension ConferenceDemoViewController: OnConferenceListener {
         }
     }
     
+    /**
+     会议室状态更新时回调
+     @param conferenceStatusBean：当前会议室状态
+     */
     func onConferenceStatusUpdate(_ conferenceStatusBean: rtc.ConferenceStatusBean) {
         MyShowLogger.instance.showLogger.info("onConferenceStatusUpdate, conferenceStatusBean--->\(conferenceStatusBean)")
         DispatchQueue.main.async { [weak self] in
@@ -1179,6 +1193,10 @@ extension ConferenceDemoViewController: OnConferenceListener {
         }
     }
     
+    /**
+     本地预览开启时回调
+     @param layoutBean：本地视频画面
+     */
     func onStartPreview(layoutBean: LayoutBean) {
         MyShowLogger.instance.showLogger.info("onStartPreview")
         if (viewControllers.count > curPosition) {
@@ -1186,6 +1204,10 @@ extension ConferenceDemoViewController: OnConferenceListener {
         }
     }
     
+    /**
+     平台推荐布局变化时回调
+     @param layoutBeans：当前推荐布局，不包含本地画面
+     */
     func onLayout(_ layoutBeans: [LayoutBean]) {
         MyShowLogger.instance.showLogger.info("onLayout, layoutBeans--->\(layoutBeans)")
         if (viewControllers.count > curPosition) {
@@ -1193,6 +1215,10 @@ extension ConferenceDemoViewController: OnConferenceListener {
         }
     }
     
+    /**
+     会中参会人更新时回调
+     @param participantBeans：当前会中参会人列表
+     */
     func onParticipantsUpdate(_ participantBeans: [rtc.ParticipantBean]) {
         MyShowLogger.instance.showLogger.info("onParticipantsUpdate, participantBeans--->\(participantBeans)")
         var participantBeans = participantBeans
@@ -1230,6 +1256,10 @@ extension ConferenceDemoViewController: OnConferenceListener {
         }
     }
     
+    /**
+     有人开始共享二路流时回调
+     @param presentationStartBean：二路流相关信息
+     */
     func onPresentationStart(_ presentationStartBean: PresentationStartBean) {
         MyShowLogger.instance.showLogger.info("onPresentationStart， presentationStartBean--->\(presentationStartBean)")
         DispatchQueue.main.async { [weak self] in
@@ -1238,6 +1268,9 @@ extension ConferenceDemoViewController: OnConferenceListener {
         }
     }
     
+    /**
+     共享二路流被停止时回调
+     */
     func onPresentationStop() {
         MyShowLogger.instance.showLogger.info("onPresentationStop")
         DispatchQueue.main.async { [weak self] in
@@ -1261,6 +1294,9 @@ extension ConferenceDemoViewController: OnConferenceListener {
         }
     }
     
+    /**
+     本地共享屏幕被停止时回调，因为 iOS 共享屏幕，可以在系统状态栏左上角停止，该回调是为了这一场景下通知应用层
+     */
     func onScreenPresentationStop() {
         MyShowLogger.instance.showLogger.info("onScreenPresentationStop")
         for viewController in viewControllers {
@@ -1281,74 +1317,141 @@ extension ConferenceDemoViewController: OnConferenceListener {
         conferenceManager.getRTCManager()?.layout("1:5")
     }
     
+    /**
+     会中有人共享二路流后，开始白板功能时回调
+     @param whiteboardStartBean：标注相关信息
+     */
     func onWhiteboardStart(_ whiteboardStartBean: WhiteboardStartBean) {
         MyShowLogger.instance.showLogger.info("onWhiteboardStart, whiteboardStartBean--->\(whiteboardStartBean)")
     }
     
+    /**
+     停止白板功能时回调
+     */
     func onWhiteboardStop() {
         MyShowLogger.instance.showLogger.info("onWhiteboardStop")
     }
     
+    /**
+     白板添加笔画时回调
+     @param whiteboardAddLineBean：添加的笔画
+     */
     func onWhiteboardAddLine(_ whiteboardAddLineBean: WhiteboardAddLineBean) {
         MyShowLogger.instance.showLogger.info("onWhiteboardAddLine, whiteboardAddLineBean--->\(whiteboardAddLineBean)")
     }
     
+    /**
+     白板删除笔画时回调
+     @param whiteboardStartBean：删除的笔画
+     */
     func onWhiteboardDeleteLine(_ whiteboardDeleteLineBean: WhiteboardDeleteLineBean) {
         MyShowLogger.instance.showLogger.info("onWhiteboardDeleteLine, whiteboardDeleteLineBean--->\(whiteboardDeleteLineBean)")
     }
     
-    func onWhiteboardMarkPermissionChanged(_ isWhiteboardAllowOtherMark: Bool, screenShare: Int?) {
-        MyShowLogger.instance.showLogger.info("onWhiteboardMarkPermissionChanged, isWhiteboardAllowOtherMark--->\(isWhiteboardAllowOtherMark)")
-    }
-    
+    /**
+     白板清空笔画时回调
+     */
     func onWhiteboardClearLine() {
         MyShowLogger.instance.showLogger.info("onWhiteboardClearLine")
     }
     
+    /**
+     白板批注权限变化时回调
+     @param isWhiteboardAllowOtherMark：白板是否允许他人批注，true 为任何人可以批注，false 为只能发起者批注，其他人禁止批注
+     @param screenShare：共享屏幕时的批注权限，0 为未开启屏幕批注，1 为禁止屏幕批注，2 为允许屏幕批注，
+     */
+    func onWhiteboardMarkPermissionChanged(_ isWhiteboardAllowOtherMark: Bool, screenShare: Int?) {
+        MyShowLogger.instance.showLogger.info("onWhiteboardMarkPermissionChanged, isWhiteboardAllowOtherMark--->\(isWhiteboardAllowOtherMark)")
+    }
+    
+    /**
+     白板底图更新时回调
+     @param url：当前白板底图地址
+     */
     func onWhiteboardBackgroundUpdate(_ url: String) {
         MyShowLogger.instance.showLogger.info("onWhiteboardBackgroundUpdate: url--->\(url)")
     }
     
+    /**
+     聊天权限变化时回调
+     @param chatPermission：当前聊天权限
+     */
     func onChatPermissionChanged(_ chatPermission: ChatPermission) {
         MyShowLogger.instance.showLogger.info("onChatPermissionChanged, chatPermission--->\(chatPermission)")
     }
     
+    /**
+     直播聊天权限时回调
+     @param livingChatPermission：当前直播聊天权限
+     */
     func onLivingChatPermissionChanged(_ livingChatPermission: LivingChatPermission) {
         MyShowLogger.instance.showLogger.info("onLivingChatPermissionChanged, livingChatPermission--->\(livingChatPermission)")
     }
     
+    /**
+     会控是否开启平台控分屏
+     @param forceMCULayout：true 为开启，false 为未开启，客户端可以根据需求自己请求布局
+     */
     func onForceMCULayoutChanged(_ forceMCULayout: Bool) {
         MyShowLogger.instance.showLogger.info("onForceMCULayoutChanged, forceMCULayout--->\(forceMCULayout)")
     }
     
+    /**
+     收到会中聊天消息时回调
+     @param msgBean：聊天信息
+     */
     func onMessage(_ msgBean: MsgBean) {
         MyShowLogger.instance.showLogger.info("onMessage, msgBean--->\(msgBean)")
     }
     
+    /**
+     收到会控字幕时回调
+     @param msgBean：字幕信息
+     */
     func onSubtitle(_ msgBean: MsgBean) {
         MyShowLogger.instance.showLogger.info("onSubtitle, msgBean--->\(msgBean)")
     }
     
+    /**
+     自己被会控静音或者解除静音时回调
+     @param myParticipantBean：自己的参会人信息
+     */
     func onServerAudioMuteChanged(_ myParticipantBean: ParticipantBean) {
         MyShowLogger.instance.showLogger.info("onServerAudioMuteChanged, myParticipantBean--->\(myParticipantBean)")
     }
     
+    /**
+     自己被会控提示开启麦克风时回调
+     */
     func onNotifyOpenAudio() {
         MyShowLogger.instance.showLogger.info("onNotifyOpenAudio")
     }
     
+    /**
+     自己被会控关闭视频或者解除关闭视频时回调
+     @param myParticipantBean：自己的参会人信息
+     */
     func onServerVideoMuteChanged(_ myParticipantBean: ParticipantBean) {
         MyShowLogger.instance.showLogger.info("onServerVideoMuteChanged, myParticipantBean--->\(myParticipantBean)")
     }
     
+    /**
+     举手后被允许时回调
+     */
     func onAllowRaiseHand() {
         MyShowLogger.instance.showLogger.info("onAllowRaiseHand")
     }
     
+    /**
+     举手后被拒绝时回调
+     */
     func onRejectRaiseHand() {
         MyShowLogger.instance.showLogger.info("onRejectRaiseHand")
     }
     
+    /**
+     选看被中断时回调
+     */
     func onCancelSelectSee(_ selectSeeUUID: String) {
         MyShowLogger.instance.showLogger.info("onCancelSelectSee, selectSeeUUID--->\(selectSeeUUID)")
     }

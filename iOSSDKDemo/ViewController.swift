@@ -87,7 +87,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        MyShowLogger.instance.showLogger.debug("viewDidLoad")
         
         // Set the view background color
         view.backgroundColor = .white
@@ -96,10 +95,6 @@ class ViewController: UIViewController {
         initView()
         setListener()
         initData()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        MyShowLogger.instance.showLogger.debug("viewDidAppear")
     }
     
     private func initView() {
