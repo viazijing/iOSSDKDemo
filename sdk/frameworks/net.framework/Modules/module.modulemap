@@ -1,0 +1,4 @@
+framework module net {
+  header "net-Swift.h"
+  requires objc
+}

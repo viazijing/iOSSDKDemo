@@ -1,0 +1,4 @@
+framework module common {
+  header "common-Swift.h"
+  requires objc
+}
