@@ -3,6 +3,1345 @@
     "kind": "Root",
     "name": "TopLevel",
     "printedName": "TopLevel",
+    "children": [
+      {
+        "kind": "TypeDecl",
+        "name": "PermissionChecker",
+        "printedName": "PermissionChecker",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "isAuthorized",
+            "printedName": "isAuthorized()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10permission17PermissionCheckerP12isAuthorizedSbyF",
+            "mangledName": "$s10permission17PermissionCheckerP12isAuthorizedSbyF",
+            "moduleName": "permission",
+            "genericSig": "<τ_0_0 where τ_0_0 : permission.PermissionChecker>",
+            "sugared_genericSig": "<Self where Self : permission.PermissionChecker>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "request",
+            "printedName": "request(success:failure:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(() -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "() -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((any Swift.Error) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(any Swift.Error) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Error",
+                        "printedName": "any Swift.Error",
+                        "usr": "s:s5ErrorP"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10permission17PermissionCheckerP7request7success7failureyyycSg_ys5Error_pcSgtF",
+            "mangledName": "$s10permission17PermissionCheckerP7request7success7failureyyycSg_ys5Error_pcSgtF",
+            "moduleName": "permission",
+            "genericSig": "<τ_0_0 where τ_0_0 : permission.PermissionChecker>",
+            "sugared_genericSig": "<Self where Self : permission.PermissionChecker>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "requestSync",
+            "printedName": "requestSync()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10permission17PermissionCheckerP11requestSyncSbyKF",
+            "mangledName": "$s10permission17PermissionCheckerP11requestSyncSbyKF",
+            "moduleName": "permission",
+            "genericSig": "<τ_0_0 where τ_0_0 : permission.PermissionChecker>",
+            "sugared_genericSig": "<Self where Self : permission.PermissionChecker>",
+            "protocolReq": true,
+            "throwing": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:10permission17PermissionCheckerP",
+        "mangledName": "$s10permission17PermissionCheckerP",
+        "moduleName": "permission",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "PermissionError",
+        "printedName": "PermissionError",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "DENIED",
+            "printedName": "DENIED",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(permission.PermissionError.Type) -> permission.PermissionError",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PermissionError",
+                    "printedName": "permission.PermissionError",
+                    "usr": "s:10permission15PermissionErrorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "permission.PermissionError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PermissionError",
+                        "printedName": "permission.PermissionError",
+                        "usr": "s:10permission15PermissionErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:10permission15PermissionErrorO6DENIEDyA2CmF",
+            "mangledName": "$s10permission15PermissionErrorO6DENIEDyA2CmF",
+            "moduleName": "permission",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "RESTRICTED",
+            "printedName": "RESTRICTED",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(permission.PermissionError.Type) -> permission.PermissionError",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PermissionError",
+                    "printedName": "permission.PermissionError",
+                    "usr": "s:10permission15PermissionErrorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "permission.PermissionError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PermissionError",
+                        "printedName": "permission.PermissionError",
+                        "usr": "s:10permission15PermissionErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:10permission15PermissionErrorO10RESTRICTEDyA2CmF",
+            "mangledName": "$s10permission15PermissionErrorO10RESTRICTEDyA2CmF",
+            "moduleName": "permission",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PermissionError",
+                "printedName": "permission.PermissionError",
+                "usr": "s:10permission15PermissionErrorO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PermissionError",
+                "printedName": "permission.PermissionError",
+                "usr": "s:10permission15PermissionErrorO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10permission15PermissionErrorO2eeoiySbAC_ACtFZ",
+            "mangledName": "$s10permission15PermissionErrorO2eeoiySbAC_ACtFZ",
+            "moduleName": "permission",
+            "static": true,
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10permission15PermissionErrorO9hashValueSivp",
+            "mangledName": "$s10permission15PermissionErrorO9hashValueSivp",
+            "moduleName": "permission",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10permission15PermissionErrorO9hashValueSivg",
+                "mangledName": "$s10permission15PermissionErrorO9hashValueSivg",
+                "moduleName": "permission",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10permission15PermissionErrorO4hash4intoys6HasherVz_tF",
+            "mangledName": "$s10permission15PermissionErrorO4hash4intoys6HasherVz_tF",
+            "moduleName": "permission",
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:10permission15PermissionErrorO",
+        "mangledName": "$s10permission15PermissionErrorO",
+        "moduleName": "permission",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Error",
+            "printedName": "Error",
+            "usr": "s:s5ErrorP",
+            "mangledName": "$ss5ErrorP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "AVFoundation",
+        "printedName": "AVFoundation",
+        "declKind": "Import",
+        "moduleName": "permission",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "CameraPermissionChecker",
+        "printedName": "CameraPermissionChecker",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CameraPermissionChecker",
+                "printedName": "permission.CameraPermissionChecker",
+                "usr": "s:10permission23CameraPermissionCheckerC"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:10permission23CameraPermissionCheckerCACycfc",
+            "mangledName": "$s10permission23CameraPermissionCheckerCACycfc",
+            "moduleName": "permission",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "isAuthorized",
+            "printedName": "isAuthorized()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10permission23CameraPermissionCheckerC12isAuthorizedSbyF",
+            "mangledName": "$s10permission23CameraPermissionCheckerC12isAuthorizedSbyF",
+            "moduleName": "permission",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "request",
+            "printedName": "request(success:failure:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(() -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "() -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((any Swift.Error) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(any Swift.Error) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Error",
+                        "printedName": "any Swift.Error",
+                        "usr": "s:s5ErrorP"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10permission23CameraPermissionCheckerC7request7success7failureyyycSg_ys5Error_pcSgtF",
+            "mangledName": "$s10permission23CameraPermissionCheckerC7request7success7failureyyycSg_ys5Error_pcSgtF",
+            "moduleName": "permission",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "requestSync",
+            "printedName": "requestSync()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10permission23CameraPermissionCheckerC11requestSyncSbyKF",
+            "mangledName": "$s10permission23CameraPermissionCheckerC11requestSyncSbyKF",
+            "moduleName": "permission",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:10permission23CameraPermissionCheckerC",
+        "mangledName": "$s10permission23CameraPermissionCheckerC",
+        "moduleName": "permission",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "PermissionChecker",
+            "printedName": "PermissionChecker",
+            "usr": "s:10permission17PermissionCheckerP",
+            "mangledName": "$s10permission17PermissionCheckerP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "EventKit",
+        "printedName": "EventKit",
+        "declKind": "Import",
+        "moduleName": "permission",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "CalendarPermissionChecker",
+        "printedName": "CalendarPermissionChecker",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CalendarPermissionChecker",
+                "printedName": "permission.CalendarPermissionChecker",
+                "usr": "s:10permission25CalendarPermissionCheckerC"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:10permission25CalendarPermissionCheckerCACycfc",
+            "mangledName": "$s10permission25CalendarPermissionCheckerCACycfc",
+            "moduleName": "permission",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "isAuthorized",
+            "printedName": "isAuthorized()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10permission25CalendarPermissionCheckerC12isAuthorizedSbyF",
+            "mangledName": "$s10permission25CalendarPermissionCheckerC12isAuthorizedSbyF",
+            "moduleName": "permission",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "request",
+            "printedName": "request(success:failure:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(() -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "() -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((any Swift.Error) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(any Swift.Error) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Error",
+                        "printedName": "any Swift.Error",
+                        "usr": "s:s5ErrorP"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10permission25CalendarPermissionCheckerC7request7success7failureyyycSg_ys5Error_pcSgtF",
+            "mangledName": "$s10permission25CalendarPermissionCheckerC7request7success7failureyyycSg_ys5Error_pcSgtF",
+            "moduleName": "permission",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "requestSync",
+            "printedName": "requestSync()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10permission25CalendarPermissionCheckerC11requestSyncSbyKF",
+            "mangledName": "$s10permission25CalendarPermissionCheckerC11requestSyncSbyKF",
+            "moduleName": "permission",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:10permission25CalendarPermissionCheckerC",
+        "mangledName": "$s10permission25CalendarPermissionCheckerC",
+        "moduleName": "permission",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "PermissionChecker",
+            "printedName": "PermissionChecker",
+            "usr": "s:10permission17PermissionCheckerP",
+            "mangledName": "$s10permission17PermissionCheckerP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "PermissionType",
+        "printedName": "PermissionType",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PermissionType",
+                "printedName": "permission.PermissionType",
+                "usr": "s:10permission14PermissionTypeV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PermissionType",
+                "printedName": "permission.PermissionType",
+                "usr": "s:10permission14PermissionTypeV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10permission14PermissionTypeV2eeoiySbAC_ACtFZ",
+            "mangledName": "$s10permission14PermissionTypeV2eeoiySbAC_ACtFZ",
+            "moduleName": "permission",
+            "static": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "permissionChecker",
+            "printedName": "permissionChecker",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PermissionChecker",
+                "printedName": "any permission.PermissionChecker",
+                "usr": "s:10permission17PermissionCheckerP"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10permission14PermissionTypeV0A7CheckerAA0bD0_pvp",
+            "mangledName": "$s10permission14PermissionTypeV0A7CheckerAA0bD0_pvp",
+            "moduleName": "permission",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PermissionChecker",
+                    "printedName": "any permission.PermissionChecker",
+                    "usr": "s:10permission17PermissionCheckerP"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10permission14PermissionTypeV0A7CheckerAA0bD0_pvg",
+                "mangledName": "$s10permission14PermissionTypeV0A7CheckerAA0bD0_pvg",
+                "moduleName": "permission",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "AUDIO_RECORD",
+            "printedName": "AUDIO_RECORD",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PermissionType",
+                "printedName": "permission.PermissionType",
+                "usr": "s:10permission14PermissionTypeV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10permission14PermissionTypeV12AUDIO_RECORDACvpZ",
+            "mangledName": "$s10permission14PermissionTypeV12AUDIO_RECORDACvpZ",
+            "moduleName": "permission",
+            "static": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PermissionType",
+                    "printedName": "permission.PermissionType",
+                    "usr": "s:10permission14PermissionTypeV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10permission14PermissionTypeV12AUDIO_RECORDACvgZ",
+                "mangledName": "$s10permission14PermissionTypeV12AUDIO_RECORDACvgZ",
+                "moduleName": "permission",
+                "static": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "CAMERA",
+            "printedName": "CAMERA",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PermissionType",
+                "printedName": "permission.PermissionType",
+                "usr": "s:10permission14PermissionTypeV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10permission14PermissionTypeV6CAMERAACvpZ",
+            "mangledName": "$s10permission14PermissionTypeV6CAMERAACvpZ",
+            "moduleName": "permission",
+            "static": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PermissionType",
+                    "printedName": "permission.PermissionType",
+                    "usr": "s:10permission14PermissionTypeV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10permission14PermissionTypeV6CAMERAACvgZ",
+                "mangledName": "$s10permission14PermissionTypeV6CAMERAACvgZ",
+                "moduleName": "permission",
+                "static": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:10permission14PermissionTypeV",
+        "mangledName": "$s10permission14PermissionTypeV",
+        "moduleName": "permission",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "AVFoundation",
+        "printedName": "AVFoundation",
+        "declKind": "Import",
+        "moduleName": "permission",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AudioRecordPermissionChecker",
+        "printedName": "AudioRecordPermissionChecker",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AudioRecordPermissionChecker",
+                "printedName": "permission.AudioRecordPermissionChecker",
+                "usr": "s:10permission28AudioRecordPermissionCheckerC"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:10permission28AudioRecordPermissionCheckerCACycfc",
+            "mangledName": "$s10permission28AudioRecordPermissionCheckerCACycfc",
+            "moduleName": "permission",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "isAuthorized",
+            "printedName": "isAuthorized()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10permission28AudioRecordPermissionCheckerC12isAuthorizedSbyF",
+            "mangledName": "$s10permission28AudioRecordPermissionCheckerC12isAuthorizedSbyF",
+            "moduleName": "permission",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "request",
+            "printedName": "request(success:failure:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(() -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "() -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((any Swift.Error) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(any Swift.Error) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Error",
+                        "printedName": "any Swift.Error",
+                        "usr": "s:s5ErrorP"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10permission28AudioRecordPermissionCheckerC7request7success7failureyyycSg_ys5Error_pcSgtF",
+            "mangledName": "$s10permission28AudioRecordPermissionCheckerC7request7success7failureyyycSg_ys5Error_pcSgtF",
+            "moduleName": "permission",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "requestSync",
+            "printedName": "requestSync()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10permission28AudioRecordPermissionCheckerC11requestSyncSbyKF",
+            "mangledName": "$s10permission28AudioRecordPermissionCheckerC11requestSyncSbyKF",
+            "moduleName": "permission",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:10permission28AudioRecordPermissionCheckerC",
+        "mangledName": "$s10permission28AudioRecordPermissionCheckerC",
+        "moduleName": "permission",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "PermissionChecker",
+            "printedName": "PermissionChecker",
+            "usr": "s:10permission17PermissionCheckerP",
+            "mangledName": "$s10permission17PermissionCheckerP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Photos",
+        "printedName": "Photos",
+        "declKind": "Import",
+        "moduleName": "permission",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "PhotoLibraryPermissionChecker",
+        "printedName": "PhotoLibraryPermissionChecker",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PhotoLibraryPermissionChecker",
+                "printedName": "permission.PhotoLibraryPermissionChecker",
+                "usr": "s:10permission29PhotoLibraryPermissionCheckerC"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:10permission29PhotoLibraryPermissionCheckerCACycfc",
+            "mangledName": "$s10permission29PhotoLibraryPermissionCheckerCACycfc",
+            "moduleName": "permission",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "isAuthorized",
+            "printedName": "isAuthorized()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10permission29PhotoLibraryPermissionCheckerC12isAuthorizedSbyF",
+            "mangledName": "$s10permission29PhotoLibraryPermissionCheckerC12isAuthorizedSbyF",
+            "moduleName": "permission",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "request",
+            "printedName": "request(success:failure:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(() -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "() -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((any Swift.Error) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(any Swift.Error) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Error",
+                        "printedName": "any Swift.Error",
+                        "usr": "s:s5ErrorP"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10permission29PhotoLibraryPermissionCheckerC7request7success7failureyyycSg_ys5Error_pcSgtF",
+            "mangledName": "$s10permission29PhotoLibraryPermissionCheckerC7request7success7failureyyycSg_ys5Error_pcSgtF",
+            "moduleName": "permission",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "requestSync",
+            "printedName": "requestSync()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10permission29PhotoLibraryPermissionCheckerC11requestSyncSbyKF",
+            "mangledName": "$s10permission29PhotoLibraryPermissionCheckerC11requestSyncSbyKF",
+            "moduleName": "permission",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:10permission29PhotoLibraryPermissionCheckerC",
+        "mangledName": "$s10permission29PhotoLibraryPermissionCheckerC",
+        "moduleName": "permission",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "PermissionChecker",
+            "printedName": "PermissionChecker",
+            "usr": "s:10permission17PermissionCheckerP",
+            "mangledName": "$s10permission17PermissionCheckerP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "permission",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "PermissionUtil",
+        "printedName": "PermissionUtil",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "request",
+            "printedName": "request(permissionTypes:success:failure:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[permission.PermissionType]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PermissionType",
+                    "printedName": "permission.PermissionType",
+                    "usr": "s:10permission14PermissionTypeV"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(() -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "() -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(([permission.PermissionType]) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "([permission.PermissionType]) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[permission.PermissionType]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "PermissionType",
+                            "printedName": "permission.PermissionType",
+                            "usr": "s:10permission14PermissionTypeV"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10permission14PermissionUtilC7request0A5Types7success7failureyAA0B4TypeVd_yycSgySayAIGcSgtFZ",
+            "mangledName": "$s10permission14PermissionUtilC7request0A5Types7success7failureyAA0B4TypeVd_yycSgySayAIGcSgtFZ",
+            "moduleName": "permission",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:10permission14PermissionUtilC",
+        "mangledName": "$s10permission14PermissionUtilC",
+        "moduleName": "permission",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "hasMissingDesignatedInitializers": true
+      }
+    ],
     "json_format_version": 8
   },
   "ConstValues": []

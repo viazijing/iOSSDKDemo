@@ -1,0 +1,69 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name permission
+import AVFoundation
+import EventKit
+import Foundation
+import Photos
+import Swift
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public protocol PermissionChecker {
+  func isAuthorized() -> Swift.Bool
+  func request(success: (() -> Swift.Void)?, failure: ((any Swift.Error) -> Swift.Void)?)
+  func requestSync() throws -> Swift.Bool
+}
+public enum PermissionError : Swift.Error {
+  case DENIED
+  case RESTRICTED
+  public static func == (a: permission.PermissionError, b: permission.PermissionError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public class CameraPermissionChecker : permission.PermissionChecker {
+  public init()
+  public func isAuthorized() -> Swift.Bool
+  public func request(success: (() -> Swift.Void)?, failure: ((any Swift.Error) -> Swift.Void)?)
+  public func requestSync() throws -> Swift.Bool
+  @objc deinit
+}
+public class CalendarPermissionChecker : permission.PermissionChecker {
+  public init()
+  public func isAuthorized() -> Swift.Bool
+  public func request(success: (() -> Swift.Void)?, failure: ((any Swift.Error) -> Swift.Void)?)
+  public func requestSync() throws -> Swift.Bool
+  @objc deinit
+}
+public struct PermissionType : Swift.Equatable {
+  public static func == (lhs: permission.PermissionType, rhs: permission.PermissionType) -> Swift.Bool
+  public let permissionChecker: any permission.PermissionChecker
+  public static var AUDIO_RECORD: permission.PermissionType {
+    get
+  }
+  public static var CAMERA: permission.PermissionType {
+    get
+  }
+}
+public class AudioRecordPermissionChecker : permission.PermissionChecker {
+  public init()
+  public func isAuthorized() -> Swift.Bool
+  public func request(success: (() -> Swift.Void)?, failure: ((any Swift.Error) -> Swift.Void)?)
+  public func requestSync() throws -> Swift.Bool
+  @objc deinit
+}
+public class PhotoLibraryPermissionChecker : permission.PermissionChecker {
+  public init()
+  public func isAuthorized() -> Swift.Bool
+  public func request(success: (() -> Swift.Void)?, failure: ((any Swift.Error) -> Swift.Void)?)
+  public func requestSync() throws -> Swift.Bool
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class PermissionUtil {
+  public static func request(permissionTypes: permission.PermissionType..., success: (() -> Swift.Void)?, failure: (([permission.PermissionType]) -> Swift.Void)?)
+  @objc deinit
+}
+extension permission.PermissionError : Swift.Equatable {}
+extension permission.PermissionError : Swift.Hashable {}

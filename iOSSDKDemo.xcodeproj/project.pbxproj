@@ -45,12 +45,8 @@
 		042423182DAE3BA500AD7E43 /* ConferenceDemoPresentScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042423172DAE3BA500AD7E43 /* ConferenceDemoPresentScreenViewController.swift */; };
 		0424231D2DAF479300AD7E43 /* StatisticsDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0424231C2DAF479300AD7E43 /* StatisticsDialog.swift */; };
 		042423202DAF47AA00AD7E43 /* ExcelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0424231F2DAF47AA00AD7E43 /* ExcelView.swift */; };
-		0424235E2DAF86C500AD7E43 /* Zip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0424235B2DAF86C400AD7E43 /* Zip.framework */; };
-		0424235F2DAF86C500AD7E43 /* Zip.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0424235B2DAF86C400AD7E43 /* Zip.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		042423602DAF86C500AD7E43 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0424235C2DAF86C400AD7E43 /* SnapKit.framework */; };
-		042423612DAF86C500AD7E43 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0424235C2DAF86C400AD7E43 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		042423622DAF86C500AD7E43 /* TZImagePickerController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0424235D2DAF86C500AD7E43 /* TZImagePickerController.framework */; };
-		042423632DAF86C500AD7E43 /* TZImagePickerController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0424235D2DAF86C500AD7E43 /* TZImagePickerController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D7830BEA3571A9CA96398E86 /* Pods_Presentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FECA406255837551AB2FAC11 /* Pods_Presentation.framework */; };
+		F3CD3CB1F92FBBB0CFD871E7 /* Pods_iOSSDKDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4396006A63198DBF7AA814AF /* Pods_iOSSDKDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,13 +66,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				042423632DAF86C500AD7E43 /* TZImagePickerController.framework in Embed Frameworks */,
 				04238F942DA8BDD4002889E4 /* net.framework in Embed Frameworks */,
 				042422C62DA90B3A00AD7E43 /* permission.framework in Embed Frameworks */,
 				04238F922DA8BDD3002889E4 /* common.framework in Embed Frameworks */,
-				042423612DAF86C500AD7E43 /* SnapKit.framework in Embed Frameworks */,
 				04238F962DA8BDD6002889E4 /* rtc.framework in Embed Frameworks */,
-				0424235F2DAF86C500AD7E43 /* Zip.framework in Embed Frameworks */,
 				04238F982DA8BDD7002889E4 /* WebRTC.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -143,9 +136,12 @@
 		042423172DAE3BA500AD7E43 /* ConferenceDemoPresentScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConferenceDemoPresentScreenViewController.swift; sourceTree = "<group>"; };
 		0424231C2DAF479300AD7E43 /* StatisticsDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsDialog.swift; sourceTree = "<group>"; };
 		0424231F2DAF47AA00AD7E43 /* ExcelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExcelView.swift; sourceTree = "<group>"; };
-		0424235B2DAF86C400AD7E43 /* Zip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Zip.framework; sourceTree = "<group>"; };
-		0424235C2DAF86C400AD7E43 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SnapKit.framework; sourceTree = "<group>"; };
-		0424235D2DAF86C500AD7E43 /* TZImagePickerController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TZImagePickerController.framework; sourceTree = "<group>"; };
+		42AFDF51B8D885627952EFE0 /* Pods-iOSSDKDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSSDKDemo.release.xcconfig"; path = "Target Support Files/Pods-iOSSDKDemo/Pods-iOSSDKDemo.release.xcconfig"; sourceTree = "<group>"; };
+		4396006A63198DBF7AA814AF /* Pods_iOSSDKDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSSDKDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4647AF873B8000A2DF20E2CA /* Pods-Presentation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Presentation.release.xcconfig"; path = "Target Support Files/Pods-Presentation/Pods-Presentation.release.xcconfig"; sourceTree = "<group>"; };
+		91D7D764BC20A943C555B06F /* Pods-iOSSDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSSDKDemo.debug.xcconfig"; path = "Target Support Files/Pods-iOSSDKDemo/Pods-iOSSDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		DD6592EF4105559C86E726DE /* Pods-Presentation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Presentation.debug.xcconfig"; path = "Target Support Files/Pods-Presentation/Pods-Presentation.debug.xcconfig"; sourceTree = "<group>"; };
+		FECA406255837551AB2FAC11 /* Pods_Presentation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Presentation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,14 +149,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				042423622DAF86C500AD7E43 /* TZImagePickerController.framework in Frameworks */,
 				04238F912DA8BDD3002889E4 /* common.framework in Frameworks */,
 				042422C52DA90B3A00AD7E43 /* permission.framework in Frameworks */,
 				04238F932DA8BDD4002889E4 /* net.framework in Frameworks */,
-				042423602DAF86C500AD7E43 /* SnapKit.framework in Frameworks */,
 				04238F952DA8BDD5002889E4 /* rtc.framework in Frameworks */,
-				0424235E2DAF86C500AD7E43 /* Zip.framework in Frameworks */,
 				04238F972DA8BDD7002889E4 /* WebRTC.framework in Frameworks */,
+				F3CD3CB1F92FBBB0CFD871E7 /* Pods_iOSSDKDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +164,7 @@
 			files = (
 				042423122DAE3A5B00AD7E43 /* rtc.framework in Frameworks */,
 				042423062DAE39D000AD7E43 /* ReplayKit.framework in Frameworks */,
+				D7830BEA3571A9CA96398E86 /* Pods_Presentation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,6 +178,7 @@
 				042423072DAE39D000AD7E43 /* Presentation */,
 				04238F7C2DA8B4A6002889E4 /* Frameworks */,
 				04238F662DA8AFDF002889E4 /* Products */,
+				EAE26250B46D9A99AB74B437 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -215,15 +211,14 @@
 		04238F7C2DA8B4A6002889E4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0424235C2DAF86C400AD7E43 /* SnapKit.framework */,
-				0424235D2DAF86C500AD7E43 /* TZImagePickerController.framework */,
-				0424235B2DAF86C400AD7E43 /* Zip.framework */,
 				04238F852DA8BD2C002889E4 /* common.framework */,
 				04238F862DA8BD2C002889E4 /* net.framework */,
 				042422C32DA90B2E00AD7E43 /* permission.framework */,
 				04238F872DA8BD2C002889E4 /* rtc.framework */,
 				04238F842DA8BD2B002889E4 /* WebRTC.framework */,
 				042423052DAE39D000AD7E43 /* ReplayKit.framework */,
+				FECA406255837551AB2FAC11 /* Pods_Presentation.framework */,
+				4396006A63198DBF7AA814AF /* Pods_iOSSDKDemo.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -349,6 +344,17 @@
 			path = widget;
 			sourceTree = "<group>";
 		};
+		EAE26250B46D9A99AB74B437 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DD6592EF4105559C86E726DE /* Pods-Presentation.debug.xcconfig */,
+				4647AF873B8000A2DF20E2CA /* Pods-Presentation.release.xcconfig */,
+				91D7D764BC20A943C555B06F /* Pods-iOSSDKDemo.debug.xcconfig */,
+				42AFDF51B8D885627952EFE0 /* Pods-iOSSDKDemo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -356,11 +362,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04238F792DA8AFE1002889E4 /* Build configuration list for PBXNativeTarget "iOSSDKDemo" */;
 			buildPhases = (
+				3BE0B85C94A2D657A7F2C957 /* [CP] Check Pods Manifest.lock */,
 				04238F612DA8AFDF002889E4 /* Sources */,
 				04238F622DA8AFDF002889E4 /* Frameworks */,
 				04238F632DA8AFDF002889E4 /* Resources */,
 				04238F812DA8B528002889E4 /* Embed Frameworks */,
 				042423112DAE39D000AD7E43 /* Embed Foundation Extensions */,
+				1221712A6B30B6D062BEB36D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -376,6 +384,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0424230E2DAE39D000AD7E43 /* Build configuration list for PBXNativeTarget "Presentation" */;
 			buildPhases = (
+				6E7C71BD6FD85D872D443AEE /* [CP] Check Pods Manifest.lock */,
 				042423002DAE39D000AD7E43 /* Sources */,
 				042423012DAE39D000AD7E43 /* Frameworks */,
 				042423022DAE39D000AD7E43 /* Resources */,
@@ -444,6 +453,70 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1221712A6B30B6D062BEB36D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOSSDKDemo/Pods-iOSSDKDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOSSDKDemo/Pods-iOSSDKDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOSSDKDemo/Pods-iOSSDKDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3BE0B85C94A2D657A7F2C957 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iOSSDKDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6E7C71BD6FD85D872D443AEE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Presentation-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		04238F612DA8AFDF002889E4 /* Sources */ = {
@@ -615,6 +688,7 @@
 		};
 		04238F7A2DA8AFE1002889E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91D7D764BC20A943C555B06F /* Pods-iOSSDKDemo.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -623,6 +697,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Z8SE9YCY23;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -658,6 +733,7 @@
 		};
 		04238F7B2DA8AFE1002889E4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42AFDF51B8D885627952EFE0 /* Pods-iOSSDKDemo.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -666,6 +742,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Z8SE9YCY23;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -701,6 +778,7 @@
 		};
 		0424230F2DAE39D000AD7E43 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD6592EF4105559C86E726DE /* Pods-Presentation.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Presentation/Presentation.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -732,6 +810,7 @@
 		};
 		042423102DAE39D000AD7E43 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4647AF873B8000A2DF20E2CA /* Pods-Presentation.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Presentation/Presentation.entitlements;
 				CODE_SIGN_STYLE = Automatic;

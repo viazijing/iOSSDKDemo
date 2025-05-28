@@ -1,0 +1,350 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name common
+import CommonCrypto
+import Foundation
+import Photos
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@_hasMissingDesignatedInitializers public class StatusBarUtil {
+  public static func setColor(color: UIKit.UIColor)
+  public static func setDark(dark: Swift.Bool)
+  public static func getHeight() -> CoreFoundation.CGFloat
+  @objc deinit
+}
+public class CommonDialog {
+  public init(title: Swift.String?, titleTextColor: UIKit.UIColor? = nil, titleTextSize: UIKit.UIFont? = nil, message: Swift.String?, messageTextColor: UIKit.UIColor? = nil, messageTextSize: UIKit.UIFont? = nil, negativeButtonText: Swift.String? = "取消", negativeButtonTextColor: UIKit.UIColor? = nil, negativeButtonHandler: ((UIKit.UIAlertAction) -> Swift.Void)? = nil, positiveButtonText: Swift.String? = "确定", positiveButtonTextColor: UIKit.UIColor? = nil, positiveButtonHandler: ((UIKit.UIAlertAction) -> Swift.Void)? = nil)
+  public func show(uiViewController: UIKit.UIViewController?, cancelable: Swift.Bool = true)
+  public func dismiss()
+  @objc deinit
+}
+extension UIKit.UIAlertController {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func commonDialogTouchOutside()
+}
+public enum Status {
+  case loading
+  case content
+  case empty
+  case failure
+  public static func == (a: common.Status, b: common.Status) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class StatusView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public func initContentView(viewController: UIKit.UIViewController)
+  @_Concurrency.MainActor(unsafe) public func initContentView(contentView: UIKit.UIView)
+  @_Concurrency.MainActor(unsafe) public func setLoadingView(loadingView: UIKit.UIView)
+  @_Concurrency.MainActor(unsafe) public func setEmptyView(loadingView: UIKit.UIView)
+  @_Concurrency.MainActor(unsafe) public func setFailureView(loadingView: UIKit.UIView)
+  @_Concurrency.MainActor(unsafe) public func changeStatus(status: common.Status)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+open class BasePresenter<V, M> : common.PresenterProtocol where V : AnyObject, M : common.ModelProtocol {
+  weak public var view: V?
+  public var model: M?
+  required public init()
+  open func attachView(view: V)
+  open func detachView()
+  @objc deinit
+}
+public protocol HumanReadable {
+  func toString() -> Swift.String
+}
+extension common.HumanReadable {
+  public func toString() -> Swift.String
+}
+extension UIKit.UITextField {
+  @_Concurrency.MainActor(unsafe) public func setPlaceholderColor(_ color: UIKit.UIColor)
+  @_Concurrency.MainActor(unsafe) public func setDelegateProxy(_ delegateProxy: common.TextFieldDelegateProxy)
+}
+@objc @_Concurrency.MainActor(unsafe) public class TextFieldDelegateProxy : ObjectiveC.NSObject, UIKit.UITextFieldDelegate {
+  @_Concurrency.MainActor(unsafe) public init(onTextChanged: ((_ textField: UIKit.UITextField, _ string: Swift.String?) -> Swift.Void)? = nil, onReturn: ((_ textField: UIKit.UITextField, _ string: Swift.String?) -> Swift.Void)? = nil, maxLength: Swift.Int = Int.max)
+  @_Concurrency.MainActor(unsafe) @objc public func textFieldShouldReturn(_ textField: UIKit.UITextField) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc public func textField(_ textField: UIKit.UITextField, shouldChangeCharactersIn range: Foundation.NSRange, replacementString string: Swift.String) -> Swift.Bool
+  @objc @_Concurrency.MainActor(unsafe) public func editingChanged(textField: UIKit.UITextField)
+  @objc deinit
+}
+extension UIKit.UIImage {
+  public func gaussian(radius: CoreFoundation.CGFloat = 10) -> UIKit.UIImage
+  public func compressImageToTargetSize(targetSize: Swift.Int) -> Foundation.Data?
+}
+public enum Position {
+  case bottom
+  public static func == (a: common.Position, b: common.Position) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum Duration {
+  case short
+  case long
+  public static func == (a: common.Duration, b: common.Duration) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class Toast {
+  public var margin: UIKit.UIEdgeInsets
+  public var padding: UIKit.UIEdgeInsets
+  public var backgroundColor: UIKit.UIColor
+  public var radius: CoreFoundation.CGFloat
+  public var textColor: UIKit.UIColor
+  public var fontSize: CoreFoundation.CGFloat
+  public var position: common.Position
+  public var duration: common.Duration
+  public static func makeText(parent: UIKit.UIView? = nil, text: Swift.String) -> common.Toast
+  public func show()
+  @objc deinit
+}
+public protocol ViewProtocol : ObjectiveC.NSObject {
+  func showLoadingUI()
+  func hideLoadingUI()
+  func showContentUI()
+  func showFailureUI(e: any Swift.Error)
+  func showEmptyUI()
+}
+public class Throttler {
+  public init(delay: Foundation.TimeInterval = 0.5)
+  public func throttle(action: @escaping () -> Swift.Void)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class BaseViewController<P> : UIKit.UIViewController, common.ViewProtocol where P : common.PresenterProtocol {
+  @_Concurrency.MainActor(unsafe) public var presenter: P?
+  @_Concurrency.MainActor(unsafe) final public let contentView: UIKit.UIView
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var preferredStatusBarStyle: UIKit.UIStatusBarStyle {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewWillAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewWillDisappear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidDisappear(_ animated: Swift.Bool)
+  @objc deinit
+  @_Concurrency.MainActor(unsafe) open func showLoadingUI()
+  @_Concurrency.MainActor(unsafe) open func hideLoadingUI()
+  @_Concurrency.MainActor(unsafe) open func showContentUI()
+  @_Concurrency.MainActor(unsafe) open func showFailureUI(e: any Swift.Error)
+  @_Concurrency.MainActor(unsafe) open func showEmptyUI()
+  @_Concurrency.MainActor(unsafe) open func immersive() -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) open func statusBarDark() -> Swift.Bool?
+  @_Concurrency.MainActor(unsafe) open func toast(text: Swift.String, duration: common.Duration = .short)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+}
+extension UIKit.UINavigationController : UIKit.UIGestureRecognizerDelegate {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
+}
+public class ListDialog {
+  public init(title: Swift.String?, titleTextColor: UIKit.UIColor? = nil, titleTextSize: UIKit.UIFont? = nil, message: Swift.String?, messageTextColor: UIKit.UIColor? = nil, messageTextSize: UIKit.UIFont? = nil, negativeButtonText: Swift.String? = "取消", negativeButtonTextColor: UIKit.UIColor? = nil, negativeButtonHandler: ((UIKit.UIAlertAction) -> Swift.Void)? = nil, items: Swift.Array<(text: Swift.String, textColor: UIKit.UIColor?, handler: ((UIKit.UIAlertAction) -> Swift.Void)?)>)
+  public func show(viewController: UIKit.UIViewController?)
+  @objc deinit
+}
+public class ShowLogger {
+  public enum LogLevel : Swift.Int {
+    case verbose
+    case debug
+    case info
+    case warning
+    case error
+    case none
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public static let DEFAULT_TAG: Swift.String
+  public init(tag: Swift.String = ShowLogger.DEFAULT_TAG)
+  public func setLogLevel(logLevel: common.ShowLogger.LogLevel)
+  public func setDir(dir: Swift.String)
+  public func verbose(_ log: Any, file: Foundation.NSString = #file, line: Swift.Int = #line, function: Foundation.NSString = #function)
+  public func verbose(tag: Swift.String, _ log: Any, file: Foundation.NSString = #file, line: Swift.Int = #line, function: Foundation.NSString = #function)
+  public func debug(_ log: Any, file: Foundation.NSString = #file, line: Swift.Int = #line, function: Foundation.NSString = #function)
+  public func debug(tag: Swift.String = "daolema", _ log: Any, file: Foundation.NSString = #file, line: Swift.Int = #line, function: Foundation.NSString = #function)
+  public func info(_ log: Any, file: Foundation.NSString = #file, line: Swift.Int = #line, function: Foundation.NSString = #function)
+  public func info(tag: Swift.String = "daolema", _ log: Any, file: Foundation.NSString = #file, line: Swift.Int = #line, function: Foundation.NSString = #function)
+  public func warning(_ log: Any, file: Foundation.NSString = #file, line: Swift.Int = #line, function: Foundation.NSString = #function)
+  public func warning(tag: Swift.String = "daolema", _ log: Any, file: Foundation.NSString = #file, line: Swift.Int = #line, function: Foundation.NSString = #function)
+  public func error(_ log: Any, file: Foundation.NSString = #file, line: Swift.Int = #line, function: Foundation.NSString = #function)
+  public func error(tag: Swift.String = "daolema", _ log: Any, file: Foundation.NSString = #file, line: Swift.Int = #line, function: Foundation.NSString = #function)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class AppUtil {
+  public static func getAppIcon() -> UIKit.UIImage?
+  public static func getAppName() -> Swift.String?
+  public static func getVersionName() -> Swift.String?
+  public static func getVersionCode() -> Swift.String?
+  public static func getBundleId() -> Swift.String?
+  public static func isBackground() -> Swift.Bool
+  public static func findViewController<T>(viewControllerType: T.Type? = nil) -> T? where T : UIKit.UIViewController
+  public static func getTopViewController() -> UIKit.UIViewController?
+  public static func getUsageMemory() -> Swift.Int64
+  public static func getUsageCPU() -> CoreFoundation.CGFloat
+  @objc deinit
+}
+extension UIKit.UIScrollView {
+  @_Concurrency.MainActor(unsafe) public func horizontalAppendSubView(_ view: UIKit.UIView)
+  @_Concurrency.MainActor(unsafe) public func verticalAppendSubView(_ view: UIKit.UIView)
+  @_Concurrency.MainActor(unsafe) public func horizontalRemoveSubview(_ view: UIKit.UIView)
+  @_Concurrency.MainActor(unsafe) public func verticalRemoveSubview(_ view: UIKit.UIView)
+  @_Concurrency.MainActor(unsafe) public func removeAllViews()
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class IgnoreHighlightedButton : UIKit.UIButton {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var isHighlighted: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public protocol ModelProtocol {
+  init()
+}
+public protocol ViewControllerProtocol {
+  func initView()
+  func setListener()
+  func initData()
+}
+@_hasMissingDesignatedInitializers public class ScreenUtil {
+  public static let SCREEN_WIDTH: CoreFoundation.CGFloat
+  public static let SCREEN_HEIGHT: CoreFoundation.CGFloat
+  public static let WIDTH_SCALE: CoreFoundation.CGFloat
+  public static let HEIGHT_SCALE: CoreFoundation.CGFloat
+  public static func isPortrait() -> Swift.Bool
+  public static func getScreenWidth() -> Swift.Double
+  public static func getScreenHeight() -> Swift.Double
+  public static func getWidthScale() -> CoreFoundation.CGFloat
+  public static func getHeightScale() -> CoreFoundation.CGFloat
+  public static func getSafeInsetTop() -> CoreFoundation.CGFloat
+  @objc deinit
+}
+extension Swift.Int {
+  public func screenAdapt() -> CoreFoundation.CGFloat
+}
+extension Swift.Double {
+  public func screenAdapt() -> CoreFoundation.CGFloat
+}
+extension CoreFoundation.CGFloat {
+  public func screenAdapt() -> CoreFoundation.CGFloat
+}
+extension UIKit.UIColor {
+  public func toHexString() -> Swift.String?
+  public static func fromHexString(hexString: Swift.String) -> UIKit.UIColor?
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class MarginView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public var margin: UIKit.UIEdgeInsets
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class NavigationBarUtil {
+  public static func getHeight() -> CoreFoundation.CGFloat
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class BaseUITextField : UIKit.UITextField {
+  @_Concurrency.MainActor(unsafe) public var padding: UIKit.UIEdgeInsets
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func textRect(forBounds bounds: CoreFoundation.CGRect) -> CoreFoundation.CGRect
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func editingRect(forBounds bounds: CoreFoundation.CGRect) -> CoreFoundation.CGRect
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func leftViewRect(forBounds bounds: CoreFoundation.CGRect) -> CoreFoundation.CGRect
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func rightViewRect(forBounds bounds: CoreFoundation.CGRect) -> CoreFoundation.CGRect
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class TitleBar : common.MarginView {
+  @_Concurrency.MainActor(unsafe) public init(immersive: Swift.Bool = false, backgroundColor: UIKit.UIColor = .white, title: Swift.String? = nil, titleBold: Swift.Bool = false, leftImg: UIKit.UIImage? = nil, leftText: Swift.String? = nil, leftTextColor: UIKit.UIColor = .black, onLeftClickListener: (() -> Swift.Void)? = nil, rightImg: UIKit.UIImage? = nil, rightText: Swift.String? = nil, rightTextColor: UIKit.UIColor = .black, onRightClickListener: (() -> Swift.Void)? = nil)
+  @objc deinit
+}
+extension Swift.String {
+  public var md5: Swift.String {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class EncryptUtil {
+  public static func md5Encrypt(data: Foundation.Data) -> Swift.String
+  @objc deinit
+}
+extension UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public func addTarget(target: Any, action: ObjectiveC.Selector)
+  @_Concurrency.MainActor(unsafe) public func isVisible() -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) public func screenshot() -> UIKit.UIImage
+}
+extension Foundation.Date {
+  public var currentTime: Swift.Int {
+    get
+  }
+  public var currentTimeMillis: Swift.Int64 {
+    get
+  }
+  public var nanoTime: Swift.Int64 {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class BaseUILabel : UIKit.UILabel {
+  @_Concurrency.MainActor(unsafe) public var padding: UIKit.UIEdgeInsets
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func drawText(in rect: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class FileUtil {
+  public static func writeImg2PhotoLibrary(image: UIKit.UIImage, success: (() -> Swift.Void)?, failure: (((any Swift.Error)?) -> Swift.Void)?)
+  @objc deinit
+}
+public class Debouncer {
+  public init(delay: Foundation.TimeInterval = 0.5)
+  public func debounce(action: @escaping () -> Swift.Void)
+  @objc deinit
+}
+public class TextFieldDialog {
+  public init(title: Swift.String?, titleTextColor: UIKit.UIColor? = nil, titleTextSize: UIKit.UIFont? = nil, message: Swift.String?, messageTextColor: UIKit.UIColor? = nil, messageTextSize: UIKit.UIFont? = nil, placeholder: Swift.String? = nil, negativeButtonText: Swift.String? = "取消", negativeButtonTextColor: UIKit.UIColor? = nil, negativeButtonHandler: ((UIKit.UIAlertAction) -> Swift.Void)? = nil, positiveButtonText: Swift.String? = "确定", positiveButtonTextColor: UIKit.UIColor? = nil, positiveButtonHandler: ((UIKit.UIAlertAction, Swift.String?) -> Swift.Void)? = nil)
+  public func show(uiViewController: UIKit.UIViewController?)
+  @objc deinit
+}
+extension UIKit.UIBezierPath {
+  public func allPoints() -> [CoreFoundation.CGPoint]
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class LinearLayout : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func addSubview(_ view: UIKit.UIView)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public protocol PresenterProtocol {
+  associatedtype V
+  init()
+  func attachView(view: Self.V)
+  func detachView()
+}
+extension UIKit.UITextView {
+  @_Concurrency.MainActor(unsafe) public func setDelegateProxy(_ delegateProxy: common.TextViewDelegateProxy)
+}
+@objc @_Concurrency.MainActor(unsafe) public class TextViewDelegateProxy : ObjectiveC.NSObject, UIKit.UITextViewDelegate {
+  @_Concurrency.MainActor(unsafe) public init(placeholder: Swift.String?, maxLength: Swift.Int = Int.max)
+  @_Concurrency.MainActor(unsafe) @objc public func textViewDidChange(_ textView: UIKit.UITextView)
+  @_Concurrency.MainActor(unsafe) @objc public func textView(_ textView: UIKit.UITextView, shouldChangeTextIn range: Foundation.NSRange, replacementText text: Swift.String) -> Swift.Bool
+  @objc deinit
+}
+extension UIKit.UIControl {
+  @_Concurrency.MainActor(unsafe) public func addTarget(_ target: Any, action: ObjectiveC.Selector)
+}
+extension common.Status : Swift.Equatable {}
+extension common.Status : Swift.Hashable {}
+extension common.Position : Swift.Equatable {}
+extension common.Position : Swift.Hashable {}
+extension common.Duration : Swift.Equatable {}
+extension common.Duration : Swift.Hashable {}
+extension common.ShowLogger.LogLevel : Swift.Equatable {}
+extension common.ShowLogger.LogLevel : Swift.Hashable {}
+extension common.ShowLogger.LogLevel : Swift.RawRepresentable {}

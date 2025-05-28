@@ -1,0 +1,24 @@
+PODS:
+  - SnapKit (5.6.0)
+  - TZImagePickerController (3.8.4):
+    - TZImagePickerController/Basic (= 3.8.4)
+    - TZImagePickerController/Location (= 3.8.4)
+  - TZImagePickerController/Basic (3.8.4)
+  - TZImagePickerController/Location (3.8.4)
+
+DEPENDENCIES:
+  - SnapKit (~> 5.6.0)
+  - TZImagePickerController
+
+SPEC REPOS:
+  trunk:
+    - SnapKit
+    - TZImagePickerController
+
+SPEC CHECKSUMS:
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  TZImagePickerController: f1c9f1cae6ac0e30b31aaa9698f9bf4a7cf5b84f
+
+PODFILE CHECKSUM: 067e742621114693a0fa84a7d5efb326868b314f
+
+COCOAPODS: 1.15.2

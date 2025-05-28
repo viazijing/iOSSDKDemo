@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SnapKit
 import common
 
 class WhiteBoardFuncBar: UIView {

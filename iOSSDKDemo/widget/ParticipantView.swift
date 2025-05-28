@@ -3,11 +3,12 @@
 //  fastsdk
 //
 //  Created by Mac on 2024/5/23.
-//
+//sr
 
 import UIKit
 import WebRTC
 import rtc
+import SnapKit
 
 class MyVideoView: RTCEAGLVideoView {
     weak var curRTCVideoFrame: RTCVideoFrame?
