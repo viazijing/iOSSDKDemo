@@ -32,10 +32,10 @@
 - 下载` iOS-SDK `，并解压
 
 - 将 frameworks 中的 `rtc.framework`，`WebRTC.framework` ，`common.framework` ，`net.framework` 拖拽到工程中的 Frameworks 文件夹，选择 Copy items if needed。
-  ![](../static/_images/ios/1.png)
+  ![](https://github.com/viazijing/iOSSDKDemo/blob/main/sdk/imgs/1.png)
 
 - TARGETS 中选择项目，General 中 Frameworks,Librariees and Embedded Content 中刚才添加的 `rtc.framework`，`WebRTC.framework` ，`common.framework` ，`net.framework` 的 Embed 都设置为 Embed & Sign
-  ![](../static/_images/ios/2.png)
+  ![](https://github.com/viazijing/iOSSDKDemo/blob/main/sdk/imgs/2.png)
 
 - 在`Info.plist` 中添加麦克风、相机使用权限
 ```
@@ -53,7 +53,7 @@
 </plist>
 ```
 
-  ![](../static/_images/ios/3.png)
+  ![](https://github.com/viazijing/iOSSDKDemo/blob/main/sdk/imgs/3.png)
 
 ## 加入会议
 
