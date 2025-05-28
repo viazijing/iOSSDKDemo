@@ -1,0 +1,542 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name rtc
+import AVFoundation
+import Foundation
+import ReplayKit
+import Swift
+import UIKit
+import WebRTC
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+import common
+import net
+@_hasMissingDesignatedInitializers public class ViaZijingError : Swift.Error {
+  final public let msg: Swift.String
+  @objc deinit
+}
+@objc public class PresentationManager : ObjectiveC.NSObject {
+  public static let SCREEN_PRESENTATION_OFFER_NOTIFICATION_NAME: Swift.String
+  public static let SCREEN_PRESENTATION_ANSWER_NOTIFICATION_NAME: Swift.String
+  public static let SCREEN_PRESENTATION_SET_REMOTE_DESCRIPTION_SUCCESS_NOTIFICATION_NAME: Swift.String
+  public static let SCREEN_PRESENTATION_STOP_NOTIFICATION_NAME: Swift.String
+  public static let SCREEN_PRESENTATION_BROADCAST_FINISHED_NOTIFICATION_NAME: Swift.String
+  public static let DEFAULT_WIDTH: Swift.Int32
+  public static let DEFAULT_HEIGHT: Swift.Int32
+  public static let DEFAULT_FPS: Swift.Int32
+  public init(groupId: Swift.String?, showLogger: common.ShowLogger, httpHelper: net.HttpHelper)
+  @objc deinit
+  public func startScreenCapture(preferredExtension: Swift.String, onSuccess: @escaping (() -> Swift.Void), onFailure: @escaping ((rtc.ViaZijingError) -> Swift.Void))
+  public func startWhiteboardCapture(uiImage: UIKit.UIImage, allowOtherMark: Swift.Bool = true, onSuccess: @escaping (() -> Swift.Void), onFailure: @escaping ((rtc.ViaZijingError) -> Swift.Void))
+  public func startImageCapture(uiImage: UIKit.UIImage, allowOtherMark: Swift.Bool = true, onSuccess: @escaping (() -> Swift.Void), onFailure: @escaping ((rtc.ViaZijingError) -> Swift.Void))
+  public func stop()
+  public func newWhiteboardBackground(_ uiImage: UIKit.UIImage)
+  public func updateImgeCapture(_ uiImage: UIKit.UIImage)
+  public func addLine(width: Swift.Int, height: Swift.Int, lineWidth: Swift.Int, lineColor: UIKit.UIColor, path: UIKit.UIBezierPath, onSuccess: ((Swift.Int) -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public func removeLine(id: Swift.Int, onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public func clearLine(onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public func setAllowOtherMark(allowOtherMark: Swift.Bool, onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+}
+extension rtc.PresentationManager : WebRTC.RTCPeerConnectionDelegate {
+  @objc dynamic public func peerConnection(_ peerConnection: WebRTC.RTCPeerConnection, didChange stateChanged: WebRTC.RTCSignalingState)
+  @objc dynamic public func peerConnection(_ peerConnection: WebRTC.RTCPeerConnection, didAdd stream: WebRTC.RTCMediaStream)
+  @objc dynamic public func peerConnection(_ peerConnection: WebRTC.RTCPeerConnection, didRemove stream: WebRTC.RTCMediaStream)
+  @objc dynamic public func peerConnection(_ peerConnection: WebRTC.RTCPeerConnection, didVADChange detected: Swift.Bool)
+  @objc dynamic public func peerConnection(_ peerConnection: WebRTC.RTCPeerConnection, didHowlingStateChange level: Swift.Int32)
+  @objc dynamic public func peerConnectionShouldNegotiate(_ peerConnection: WebRTC.RTCPeerConnection)
+  @objc dynamic public func peerConnection(_ peerConnection: WebRTC.RTCPeerConnection, didChange newState: WebRTC.RTCIceConnectionState)
+  @objc dynamic public func peerConnection(_ peerConnection: WebRTC.RTCPeerConnection, didChange newState: WebRTC.RTCIceGatheringState)
+  @objc dynamic public func peerConnection(_ peerConnection: WebRTC.RTCPeerConnection, didGenerate candidate: WebRTC.RTCIceCandidate)
+  @objc dynamic public func peerConnection(_ peerConnection: WebRTC.RTCPeerConnection, didRemove candidates: [WebRTC.RTCIceCandidate])
+  @objc dynamic public func peerConnection(_ peerConnection: WebRTC.RTCPeerConnection, didOpen dataChannel: WebRTC.RTCDataChannel)
+}
+extension rtc.PresentationManager : WebRTC.RTCVideoCapturerDelegate {
+  @objc dynamic public func capturer(_ capturer: WebRTC.RTCVideoCapturer, didCapture frame: WebRTC.RTCVideoFrame)
+}
+public struct WhiteboardDeleteLineBean : Swift.Decodable {
+  public var id: Swift.Int?
+  public var sender: Swift.String?
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct WhiteboardAddLineBean : Swift.Decodable {
+  public var id: Swift.Int?
+  public var sender: Swift.String?
+  public var payload: rtc.WhiteboardAddLineBean.Payload?
+  public struct Payload : Swift.Decodable {
+    public var width: Swift.Double?
+    public var height: Swift.Double?
+    public var lineWidth: Swift.Int?
+    public var lineColor: Swift.String?
+    public var points: [rtc.WhiteboardAddLineBean.Payload.Point]?
+    public struct Point : Swift.Decodable {
+      public var x: Swift.Double?
+      public var y: Swift.Double?
+      public init(from decoder: any Swift.Decoder) throws
+    }
+    public init(from decoder: any Swift.Decoder) throws
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum LivingChatPermission : Swift.Int {
+  case notAllowed
+  case allowed
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public protocol OnConferenceListener : AnyObject {
+  func onConnected()
+  func onCallSuccess()
+  func onDisconnected(_ e: rtc.ViaZijingError?)
+  func onConferenceStatusUpdate(_ conferenceStatusBean: rtc.ConferenceStatusBean)
+  func onStartPreview(layoutBean: rtc.LayoutBean)
+  func onLayout(_ layoutBeans: [rtc.LayoutBean])
+  func onParticipantsUpdate(_ participantBeans: [rtc.ParticipantBean])
+  func onPresentationStart(_ presentationStartBean: rtc.PresentationStartBean)
+  func onPresentationStop()
+  func onScreenPresentationStop()
+  func onWhiteboardStart(_ whiteboardStartBean: rtc.WhiteboardStartBean)
+  func onWhiteboardStop()
+  func onWhiteboardAddLine(_ whiteboardAddLineBean: rtc.WhiteboardAddLineBean)
+  func onWhiteboardDeleteLine(_ whiteboardDeleteLineBean: rtc.WhiteboardDeleteLineBean)
+  func onWhiteboardClearLine()
+  func onWhiteboardMarkPermissionChanged(_ isWhiteboardAllowOtherMark: Swift.Bool, screenShare: Swift.Int?)
+  func onWhiteboardBackgroundUpdate(_ url: Swift.String)
+  func onChatPermissionChanged(_ chatPermission: rtc.ChatPermission)
+  func onLivingChatPermissionChanged(_ livingChatPermission: rtc.LivingChatPermission)
+  func onForceMCULayoutChanged(_ forceMCULayout: Swift.Bool)
+  func onMessage(_ msgBean: rtc.MsgBean)
+  func onSubtitle(_ msgBean: rtc.MsgBean)
+  func onServerAudioMuteChanged(_ myParticipantBean: rtc.ParticipantBean)
+  func onNotifyOpenAudio()
+  func onServerVideoMuteChanged(_ myParticipantBean: rtc.ParticipantBean)
+  func onAllowRaiseHand()
+  func onRejectRaiseHand()
+  func onCancelSelectSee(_ selectSeeUUID: Swift.String)
+}
+extension rtc.OnConferenceListener {
+  public func onConnected()
+  public func onCallSuccess()
+  public func onDisconnected(_ e: rtc.ViaZijingError?)
+  public func onConferenceStatusUpdate(_ conferenceStatusBean: rtc.ConferenceStatusBean)
+  public func onStartPreview(layoutBean: rtc.LayoutBean)
+  public func onLayout(_ layoutBeans: [rtc.LayoutBean])
+  public func onParticipantsUpdate(_ participantBeans: [rtc.ParticipantBean])
+  public func onPresentationStart(_ presentationStartBean: rtc.PresentationStartBean)
+  public func onPresentationStop()
+  public func onScreenPresentationStop()
+  public func onWhiteboardStart(_ whiteboardStartBean: rtc.WhiteboardStartBean)
+  public func onWhiteboardStop()
+  public func onWhiteboardAddLine(_ whiteboardAddLineBean: rtc.WhiteboardAddLineBean)
+  public func onWhiteboardDeleteLine(_ whiteboardDeleteLineBean: rtc.WhiteboardDeleteLineBean)
+  public func onWhiteboardClearLine()
+  public func onWhiteboardMarkPermissionChanged(_ isWhiteboardAllowOtherMark: Swift.Bool, screenShare: Swift.Int?)
+  public func onWhiteboardBackgroundUpdate(_ url: Swift.String)
+  public func onChatPermissionChanged(_ chatPermission: rtc.ChatPermission)
+  public func onLivingChatPermissionChanged(_ livingChatPermission: rtc.LivingChatPermission)
+  public func onForceMCULayoutChanged(_ forceMCULayout: Swift.Bool)
+  public func onMessage(_ msgBean: rtc.MsgBean)
+  public func onSubtitle(_ msgBean: rtc.MsgBean)
+  public func onServerAudioMuteChanged(_ myParticipantBean: rtc.ParticipantBean)
+  public func onNotifyOpenAudio()
+  public func onServerVideoMuteChanged(_ myParticipantBean: rtc.ParticipantBean)
+  public func onAllowRaiseHand()
+  public func onRejectRaiseHand()
+  public func onCancelSelectSee(_ selectSeeUUID: Swift.String)
+}
+public enum Resolution : Swift.Int {
+  case _360p
+  case _540p
+  case _720p
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class HeaderInterceptor : net.Interceptor {
+  public func interceptRequest(request: Foundation.URLRequest) -> Foundation.URLRequest
+  public func interceptResponse(request: Foundation.URLRequest, response: Foundation.URLResponse?, data: Foundation.Data?) -> Foundation.URLResponse?
+  @objc deinit
+}
+public struct ConferenceStatusBean : Swift.Decodable {
+  public var chatPermission: Swift.Int?
+  public var rtmpUrl: Swift.String?
+  public var conferenceTheme: Swift.String?
+  public var rollCall: Swift.Bool?
+  public var presentationPolicy: Swift.Int?
+  public var living: Swift.Bool?
+  public var duration: Swift.Int?
+  public var currentDtm: Swift.Int64?
+  public var conferenceRoomNum: Swift.String?
+  public var canRecord: Swift.Bool?
+  public var presenterUUID: Swift.String?
+  public var createDtm: Swift.Int64?
+  public var guestsMuted: Swift.Bool?
+  public var autoRecorgnition: Swift.Int?
+  public var recording: Swift.Bool?
+  public var screenshare: Swift.Int?
+  public var showCameraOff: Swift.Bool?
+  public var realLaunchDtm: Swift.Int64?
+  public var serviceUuid: Swift.String?
+  public var wbshared: Swift.Bool?
+  public var forceMcuLayout: Swift.Bool?
+  public var guestPwd: Swift.String?
+  public var locked: Swift.Bool?
+  public var guestsMutedV2: Swift.Int?
+  public var sameLayout: Swift.Bool?
+  public var whiteboard: Swift.Bool?
+  public var spkLocked: Swift.Bool?
+  public var isMark: Swift.Bool?
+  public var enableGuest: Swift.Bool?
+  public init(from decoder: any Swift.Decoder) throws
+  public func getChatPermission() -> rtc.ChatPermission
+  public func getLivingChatPermission() -> rtc.LivingChatPermission
+  public func isWhiteboardAllowOtherMark() -> Swift.Bool
+  public func isAllowUnmuteSelf() -> Swift.Bool
+}
+@objc @_inheritsConvenienceInitializers open class RTCSampleHandler : ReplayKit.RPBroadcastSampleHandler {
+  open var groupUserDefaultsHelper: rtc.GroupUserDefaultsHelper?
+  @objc override dynamic public init()
+  @objc deinit
+  @objc override dynamic open func broadcastStarted(withSetupInfo setupInfo: [Swift.String : ObjectiveC.NSObject]?)
+  @objc override dynamic open func broadcastPaused()
+  @objc override dynamic open func broadcastResumed()
+  @objc override dynamic open func broadcastFinished()
+  @objc override dynamic open func processSampleBuffer(_ sampleBuffer: CoreMedia.CMSampleBuffer, with sampleBufferType: ReplayKit.RPSampleBufferType)
+}
+extension rtc.RTCSampleHandler : WebRTC.RTCPeerConnectionDelegate {
+  @objc dynamic public func peerConnection(_ peerConnection: WebRTC.RTCPeerConnection, didChange stateChanged: WebRTC.RTCSignalingState)
+  @objc dynamic public func peerConnection(_ peerConnection: WebRTC.RTCPeerConnection, didAdd stream: WebRTC.RTCMediaStream)
+  @objc dynamic public func peerConnection(_ peerConnection: WebRTC.RTCPeerConnection, didRemove stream: WebRTC.RTCMediaStream)
+  @objc dynamic public func peerConnection(_ peerConnection: WebRTC.RTCPeerConnection, didVADChange detected: Swift.Bool)
+  @objc dynamic public func peerConnection(_ peerConnection: WebRTC.RTCPeerConnection, didHowlingStateChange level: Swift.Int32)
+  @objc dynamic public func peerConnectionShouldNegotiate(_ peerConnection: WebRTC.RTCPeerConnection)
+  @objc dynamic public func peerConnection(_ peerConnection: WebRTC.RTCPeerConnection, didChange newState: WebRTC.RTCIceConnectionState)
+  @objc dynamic public func peerConnection(_ peerConnection: WebRTC.RTCPeerConnection, didChange newState: WebRTC.RTCIceGatheringState)
+  @objc dynamic public func peerConnection(_ peerConnection: WebRTC.RTCPeerConnection, didGenerate candidate: WebRTC.RTCIceCandidate)
+  @objc dynamic public func peerConnection(_ peerConnection: WebRTC.RTCPeerConnection, didRemove candidates: [WebRTC.RTCIceCandidate])
+  @objc dynamic public func peerConnection(_ peerConnection: WebRTC.RTCPeerConnection, didOpen dataChannel: WebRTC.RTCDataChannel)
+}
+extension rtc.RTCSampleHandler : WebRTC.RTCVideoCapturerDelegate {
+  @objc dynamic public func capturer(_ capturer: WebRTC.RTCVideoCapturer, didCapture frame: WebRTC.RTCVideoFrame)
+}
+@objc public class RTCScreenVideoCapturer : WebRTC.RTCVideoCapturer {
+  @objc override dynamic public init(delegate: any WebRTC.RTCVideoCapturerDelegate)
+  public func startCapture()
+  @objc deinit
+}
+public struct PresentationStartBean : Swift.Decodable {
+  public var presenterUUID: Swift.String?
+  public var presenterUri: Swift.String?
+  public var presenterName: Swift.String?
+  public init(from decoder: any Swift.Decoder) throws
+}
+@_hasMissingDesignatedInitializers public class SdpUtil {
+  public static let VIDEO_HD_SSRC_ID: Swift.Int64
+  public static let VIDEO_SD_SSRC_ID: Swift.Int64
+  public static let PRESENTATION_VIDEO_RECEIVE_SSRC_ID: Swift.Int
+  public static let PRESENTATION_VIDEO_SEND_SSRC_ID: Swift.Int64
+  public static func insertBandwidth(origin: WebRTC.RTCSessionDescription, bandwidth: Swift.Int?) -> WebRTC.RTCSessionDescription
+  public static func updateAudio(origin: WebRTC.RTCSessionDescription, audioTrackId: Swift.String?) -> WebRTC.RTCSessionDescription
+  public static func updateVideo(origin: WebRTC.RTCSessionDescription, videoTrackId: Swift.String?, smallVideoTrackId: Swift.String? = nil) -> WebRTC.RTCSessionDescription
+  public static func updatePresentationVideo(origin: WebRTC.RTCSessionDescription, videoTrackId: Swift.String?) -> WebRTC.RTCSessionDescription
+  public static func updateVideoCodec(origin: WebRTC.RTCSessionDescription) -> WebRTC.RTCSessionDescription
+  public static func addSsrcGroup(origin: WebRTC.RTCSessionDescription, layoutBeans: [rtc.LayoutBean]) -> WebRTC.RTCSessionDescription
+  public static func removeSsrcGroup(origin: WebRTC.RTCSessionDescription, layoutBeans: [rtc.LayoutBean]) -> WebRTC.RTCSessionDescription
+  public static func updateIceCandidate(origin: WebRTC.RTCSessionDescription, showLogger: common.ShowLogger) -> WebRTC.RTCSessionDescription
+  @objc deinit
+}
+public class ConferenceConfig {
+  public init()
+  public func getUUID() -> Swift.String?
+  public func setUUID(_ uuid: Swift.String)
+  public func isMultipleStream() -> Swift.Bool
+  public func setMultipleStream(_ multipleStream: Swift.Bool)
+  public func getResolution() -> rtc.Resolution
+  public func setResolution(_ resolution: rtc.Resolution)
+  @objc deinit
+}
+public enum LogLevel : Swift.Int {
+  case verbose
+  case info
+  case warning
+  case error
+  case none
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class HostManager {
+  public func applyHost(pwd: Swift.String, onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public func muteAll(onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public func unmuteAll(onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public func allowAllWaiting(onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public func rejectAllWaiting(onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public func rejectAllRaisingHand(onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public func lock(onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public func unlock(onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public func startLive(onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public func stopLive(onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public func startRecord(onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public func stopRecord(onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public func finishConference(onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public func mute(uuid: Swift.String, onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public func unmute(uuid: Swift.String, onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public func clearRaiseHand(uuid: Swift.String, onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public func setName(uuid: Swift.String, name: Swift.String, onSuccess: (() -> Swift.Void)? = nil, onFailure: ((rtc.ViaZijingError) -> Swift.Void)? = nil)
+  public func setGuest(uuid: Swift.String, onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public func setHost(uuid: Swift.String, onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public func setMainMeetingPlace(uuid: Swift.String, onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public func setCancelMainMeetingPlace(uuid: Swift.String, onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public func setDistinguishedGuest(uuid: Swift.String, onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public func setCancelDistinguishedGuest(uuid: Swift.String, onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public func focus(uuid: Swift.String, onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public func unfocus(uuid: Swift.String, onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public func allowWaiting(uuid: Swift.String, onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public func remove(uuid: Swift.String, onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public func setChatPermission(_ chatPermission: rtc.ChatPermission, onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public func setLivingChatPermission(_ livingChatPermission: rtc.LivingChatPermission, onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public func setAllowGuestCall(_ allow: Swift.Bool, onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  @objc deinit
+}
+public struct ParticipantBean : Swift.Decodable {
+  public var uuid: Swift.String?
+  public var displayName: Swift.String?
+  public init()
+  public func getShowName() -> Swift.String?
+  public func isServerMuted() -> Swift.Bool
+  public func isServerMutedOrClientMuted() -> Swift.Bool
+  public func isInWaitingRoom() -> Swift.Bool
+  public func isRaisingHand() -> Swift.Bool
+  public func isSpeaking() -> Swift.Bool
+  public func isHost() -> Swift.Bool
+  public func isMainMeetingPlace() -> Swift.Bool
+  public func isDistinguishedGuest() -> Swift.Bool
+  public func isFocus() -> Swift.Bool
+  public func isServerVideoMuted() -> Swift.Bool
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct MsgBean : Swift.Decodable {
+  public var nickname: Swift.String?
+  public var type: Swift.String?
+  public var uuid: Swift.String?
+  public var is_private: Swift.Int?
+  public var text: Swift.String?
+  public init(nickname: Swift.String? = nil, type: Swift.String? = nil, uuid: Swift.String? = nil, is_private: Swift.Int? = nil, text: Swift.String? = nil)
+  public func isPrivate() -> Swift.Bool
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct PlatformResultBean : Swift.Decodable {
+  public var platform: Swift.String?
+  public var devIdHeader: [Swift.Int]?
+  public var erroReason: rtc.PlatformResultBean.ErrorReason?
+  public init(from decoder: any Swift.Decoder) throws
+  public struct ErrorReason : Swift.Decodable {
+    public var en: [Swift.String : Swift.String]?
+    public var zh: [Swift.String : Swift.String]?
+    public init(from decoder: any Swift.Decoder) throws
+  }
+}
+public class GroupUserDefaultsHelper {
+  public init(groupId: Swift.String)
+  public func getOfferSdp() -> Swift.String?
+  public func putOfferSdp(_ sdp: Swift.String)
+  public func getAnswerSdp() -> Swift.String?
+  public func putAnswerSdp(_ sdp: Swift.String)
+  public func getStats() -> Foundation.Data?
+  public func putStats(_ data: Foundation.Data)
+  public func removeStats()
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers public class ConferenceManager : ObjectiveC.NSObject {
+  @objc deinit
+  public func logStatistics()
+  public func setOnConferenceListener(_ onConferenceListener: any rtc.OnConferenceListener)
+  public func join(conferenceRoomNum: Swift.String, pwd: Swift.String, name: Swift.String)
+  public func host(conferenceRoomNum: Swift.String, pwd: Swift.String, name: Swift.String)
+  public func onlyPresentation(conferenceRoomNum: Swift.String, pwd: Swift.String, name: Swift.String)
+  public func quit()
+  public func getRTCManager() -> rtc.RTCManager?
+  public func getPresentationManager() -> rtc.PresentationManager?
+  public func getHostManager() -> rtc.HostManager?
+  public func getParticipantUUID() -> Swift.String
+  public func getParticipantBean(uuid: Swift.String) -> rtc.ParticipantBean?
+  public func getParticipantBeans() -> [rtc.ParticipantBean]
+  public func getMyLayoutBean() -> rtc.LayoutBean?
+  public func getCurrentLayout() -> [rtc.LayoutBean]
+  public func getConferenceStatus() -> rtc.ConferenceStatusBean?
+  public func getStatistics(callback: (([rtc.RTCStatisticsBean]) -> Swift.Void)?)
+  public func stopGetStatistics()
+  public func getSelectSeeUUID() -> Swift.String?
+  public func selectSee(uuid: Swift.String, onSuccess: (() -> Swift.Void)? = nil, onFailure: ((rtc.ViaZijingError) -> Swift.Void)? = nil)
+  public func unselectSee(uuid: Swift.String, onSuccess: (() -> Swift.Void)? = nil, onFailure: ((rtc.ViaZijingError) -> Swift.Void)? = nil)
+  public func joinWhiteboardMark(onSuccess: (([rtc.WhiteboardAddLineBean]) -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public func quitWhiteboardMark(onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public func sendMsg(text: Swift.String, uuids: [Swift.String] = [], onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public func raiseHand(onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public func lowerHand(onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public func outgoingCall(cuids: [Swift.String], onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public static func uploadLog(url: Swift.String, onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  public class Builder {
+    public init()
+    public func setScheme(_ scheme: Swift.String) -> rtc.ConferenceManager.Builder
+    public func setHost(_ host: Swift.String) -> rtc.ConferenceManager.Builder
+    public func setPort(_ port: Swift.Int) -> rtc.ConferenceManager.Builder
+    public func setAccount(_ account: Swift.String) -> rtc.ConferenceManager.Builder
+    public func setOneTimeToken(_ oneTimeToken: Swift.String) -> rtc.ConferenceManager.Builder
+    public func setGroupId(_ groupId: Swift.String) -> rtc.ConferenceManager.Builder
+    public func setLogLevel(_ logLevel: rtc.LogLevel) -> rtc.ConferenceManager.Builder
+    public func setDevId(_ devId: Swift.String) -> rtc.ConferenceManager.Builder
+    public func setDevToken(_ devToken: Swift.String) -> rtc.ConferenceManager.Builder
+    public func setUpdateBandwidthAfterAck(_ updateBandwidthAfterAck: Swift.Bool) -> rtc.ConferenceManager.Builder
+    public func build() -> rtc.ConferenceManager
+    @objc deinit
+  }
+}
+extension rtc.ConferenceManager : rtc.OnRTCListener {
+  public func onCallSuccess()
+  public func onCallFailure(_ error: rtc.ViaZijingError)
+  public func onStartPreview(mediaStream: WebRTC.RTCMediaStream)
+}
+extension rtc.ConferenceManager : rtc.OnPresentationListener {
+  public func onScreenPresentationStop()
+}
+extension rtc.ConferenceManager : Foundation.URLSessionDelegate, Foundation.URLSessionWebSocketDelegate {
+  @objc dynamic public func urlSession(_ session: Foundation.URLSession, didReceive challenge: Foundation.URLAuthenticationChallenge, completionHandler: @escaping (Foundation.URLSession.AuthChallengeDisposition, Foundation.URLCredential?) -> Swift.Void)
+  @objc dynamic public func urlSession(_ session: Foundation.URLSession, webSocketTask: Foundation.URLSessionWebSocketTask, didOpenWithProtocol protocol: Swift.String?)
+  @objc dynamic public func urlSession(_ session: Foundation.URLSession, webSocketTask: Foundation.URLSessionWebSocketTask, didCloseWith closeCode: Foundation.URLSessionWebSocketTask.CloseCode, reason: Foundation.Data?)
+}
+public enum ChatPermission : Swift.Int {
+  case notAllowed
+  case free
+  case onlyPubIsAllowed
+  case onlyToHostIsAllowed
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct WhiteboardStartBean : Swift.Decodable {
+  public var whiteboardUUID: Swift.String?
+  public var whiteboardName: Swift.String?
+  public var whiteboardBackgroundUrl: Swift.String?
+  public init(from decoder: any Swift.Decoder) throws
+}
+public protocol OnRTCListener : AnyObject {
+  func onCallSuccess()
+  func onCallFailure(_ error: rtc.ViaZijingError)
+  func onStartPreview(mediaStream: WebRTC.RTCMediaStream)
+}
+extension rtc.OnRTCListener {
+  public func onCallSuccess()
+  public func onCallFailure(_ error: rtc.ViaZijingError)
+  public func onStartPreview(layoutBean: rtc.LayoutBean)
+}
+public struct RTCStatisticsBean {
+  public var codec: Swift.String?
+  public var width: Swift.Int?
+  public var height: Swift.Int?
+  public var frameRate: Swift.Double?
+  public var byteCount: Swift.Int64?
+  public var bitRate: Swift.Int64?
+  public var jitter: Swift.Int64?
+  public var packetCount: Swift.Int64?
+  public var lostPacketCount: Swift.Int64?
+  public var ssrc: Swift.Int64?
+  public var userUUID: Swift.String?
+  public var channelName: Swift.String?
+  public var userNickname: Swift.String?
+  public var direction: rtc.RTCStatisticsBean.Direction?
+  public var mediaType: rtc.RTCStatisticsBean.MediaType?
+  public func getLostPacketRate() -> Swift.Double
+  public enum Direction {
+    case sent, recv
+    public static func == (a: rtc.RTCStatisticsBean.Direction, b: rtc.RTCStatisticsBean.Direction) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public enum MediaType {
+    case audio, video, slide
+    public static func == (a: rtc.RTCStatisticsBean.MediaType, b: rtc.RTCStatisticsBean.MediaType) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+}
+@objc @_hasMissingDesignatedInitializers public class RTCManager : ObjectiveC.NSObject {
+  public func startPreview()
+  public func stopPreview()
+  public func getVideoTrack(trackId: Swift.String) -> WebRTC.RTCVideoTrack?
+  public func isMicEnabled() -> Swift.Bool
+  public func setMicEnabled(enabled: Swift.Bool) -> Swift.Bool
+  public func isCameraEnabled() -> Swift.Bool
+  public func setCameraEnabled(enabled: Swift.Bool) -> Swift.Bool
+  public func isFrontFacing() -> Swift.Bool
+  public func switchCamera()
+  public func startCameraCapture()
+  public func startImageCapture(_ image: UIKit.UIImage)
+  public func stop()
+  public func layout(_ layout: Swift.String, onSuccess: (() -> Swift.Void)? = nil, onFailure: ((rtc.ViaZijingError) -> Swift.Void)? = nil)
+  public func overrideLayout(_ layout: Swift.String, uuids: [Swift.String], onSuccess: (() -> Swift.Void)? = nil, onFailure: ((any Swift.Error) -> Swift.Void)? = nil)
+  @objc deinit
+}
+extension rtc.RTCManager : WebRTC.RTCPeerConnectionDelegate {
+  @objc dynamic public func peerConnection(_ peerConnection: WebRTC.RTCPeerConnection, didChange stateChanged: WebRTC.RTCSignalingState)
+  @objc dynamic public func peerConnection(_ peerConnection: WebRTC.RTCPeerConnection, didAdd stream: WebRTC.RTCMediaStream)
+  @objc dynamic public func peerConnection(_ peerConnection: WebRTC.RTCPeerConnection, didRemove stream: WebRTC.RTCMediaStream)
+  @objc dynamic public func peerConnection(_ peerConnection: WebRTC.RTCPeerConnection, didVADChange detected: Swift.Bool)
+  @objc dynamic public func peerConnection(_ peerConnection: WebRTC.RTCPeerConnection, didHowlingStateChange level: Swift.Int32)
+  @objc dynamic public func peerConnectionShouldNegotiate(_ peerConnection: WebRTC.RTCPeerConnection)
+  @objc dynamic public func peerConnection(_ peerConnection: WebRTC.RTCPeerConnection, didChange newState: WebRTC.RTCIceConnectionState)
+  @objc dynamic public func peerConnection(_ peerConnection: WebRTC.RTCPeerConnection, didChange newState: WebRTC.RTCIceGatheringState)
+  @objc dynamic public func peerConnection(_ peerConnection: WebRTC.RTCPeerConnection, didGenerate candidate: WebRTC.RTCIceCandidate)
+  @objc dynamic public func peerConnection(_ peerConnection: WebRTC.RTCPeerConnection, didRemove candidates: [WebRTC.RTCIceCandidate])
+  @objc dynamic public func peerConnection(_ peerConnection: WebRTC.RTCPeerConnection, didOpen dataChannel: WebRTC.RTCDataChannel)
+}
+extension rtc.RTCManager : WebRTC.RTCVideoCapturerDelegate {
+  @objc dynamic public func capturer(_ capturer: WebRTC.RTCVideoCapturer, didCapture frame: WebRTC.RTCVideoFrame)
+}
+public struct LayoutBean {
+  public let participantUUID: Swift.String
+  public let ssrc: Swift.Int64
+  public let rtxSsrc: Swift.Int64
+  public let mediaStremId: Swift.String
+  public let mediaStremTrackId: Swift.String
+}
+public struct MyRTCLegacyStatsReportBean : Swift.Encodable, Swift.Decodable {
+  public init(timestamp: CoreFoundation.CFTimeInterval, type: Swift.String, reportId: Swift.String, values: [Swift.String : Swift.String])
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public protocol OnPresentationListener : AnyObject {
+  func onScreenPresentationStop()
+}
+extension rtc.OnPresentationListener {
+  public func onScreenPresentationStop()
+}
+extension rtc.LivingChatPermission : Swift.Equatable {}
+extension rtc.LivingChatPermission : Swift.Hashable {}
+extension rtc.LivingChatPermission : Swift.RawRepresentable {}
+extension rtc.Resolution : Swift.Equatable {}
+extension rtc.Resolution : Swift.Hashable {}
+extension rtc.Resolution : Swift.RawRepresentable {}
+extension rtc.LogLevel : Swift.Equatable {}
+extension rtc.LogLevel : Swift.Hashable {}
+extension rtc.LogLevel : Swift.RawRepresentable {}
+extension rtc.ChatPermission : Swift.Equatable {}
+extension rtc.ChatPermission : Swift.Hashable {}
+extension rtc.ChatPermission : Swift.RawRepresentable {}
+extension rtc.RTCStatisticsBean.Direction : Swift.Equatable {}
+extension rtc.RTCStatisticsBean.Direction : Swift.Hashable {}
+extension rtc.RTCStatisticsBean.MediaType : Swift.Equatable {}
+extension rtc.RTCStatisticsBean.MediaType : Swift.Hashable {}

@@ -155,15 +155,6 @@ public func outgoingCall(cuids: [String], onSuccess: (() -> Void)? = nil, onFail
 | <a href="">onSuccess</a> | 成功回调 |
 | <a href="">onFailure</a> | 失败回调 |
 
-### 上传日志
-public static func uploadLog(url: String, onSuccess: (() -> Void)? = nil, onFailure: ((Error) -> Void)? = nil)
-
-|                          参数                          |         描述         |
-| :----------------------------------------------------: | :------------------: |
-| <a href="">url</a> | 上传地址 |
-| <a href="">onSuccess</a> | 成功回调 |
-| <a href="">onFailure</a> | 失败回调 |
-
 ## RTCManager
 媒体相关
 

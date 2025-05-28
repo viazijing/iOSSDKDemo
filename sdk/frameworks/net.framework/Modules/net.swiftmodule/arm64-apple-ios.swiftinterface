@@ -1,0 +1,106 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name net
+import Foundation
+import Swift
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public enum Method : Swift.String {
+  case get
+  case post
+  case delete
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum CachePolicy : Swift.UInt {
+  case useProtocolCachePolicy
+  case reloadIgnoringLocalCacheData
+  case returnCacheDataElseLoad
+  case returnCacheDataDontLoad
+  case reloadIgnoringLocalAndRemoteCacheData
+  case reloadRevalidatingCacheData
+  public init?(rawValue: Swift.UInt)
+  public typealias RawValue = Swift.UInt
+  public var rawValue: Swift.UInt {
+    get
+  }
+}
+public class HttpHelper {
+  public init()
+  @objc deinit
+  public func addInterceptor(interceptor: any net.Interceptor)
+  public func removeInterceptor(interceptor: any net.Interceptor)
+  public func clearInterceptors()
+  public func getCaller(_ builder: net.HttpCaller.Builder) -> net.HttpCaller
+}
+open class LogInterceptor : net.Interceptor {
+  public enum LogLevel : Swift.Int {
+    case NONE
+    case BASIC
+    case HEADER
+    case BODY
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public init(logLevel: net.LogInterceptor.LogLevel = .BODY, logger: ((_ log: Swift.String) -> Swift.Void)? = nil)
+  open func interceptRequest(request: Foundation.URLRequest) -> Foundation.URLRequest
+  open func interceptResponse(request: Foundation.URLRequest, response: Foundation.URLResponse?, data: Foundation.Data?) -> Foundation.URLResponse?
+  @objc deinit
+}
+public class File {
+  public init(name: Swift.String, path: Swift.String)
+  @objc deinit
+}
+public protocol Interceptor : AnyObject {
+  func interceptRequest(request: Foundation.URLRequest) -> Foundation.URLRequest
+  func interceptResponse(request: Foundation.URLRequest, response: Foundation.URLResponse?, data: Foundation.Data?) -> Foundation.URLResponse?
+}
+public enum ContentType : Swift.String {
+  case form_urlencoded
+  case form_data
+  case json
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@objc @_hasMissingDesignatedInitializers public class HttpCaller : ObjectiveC.NSObject {
+  @objc deinit
+  public func enqueue(success: ((_ data: Foundation.Data, _ response: Foundation.URLResponse?) -> Swift.Void)? = nil, failure: ((_ data: Foundation.Data?, _ error: any Swift.Error) -> Swift.Void)? = nil)
+  public func enqueue<R>(resultType: R.Type = R.self, success: ((_ data: R, _ response: Foundation.URLResponse?) -> Swift.Void)? = nil, failure: ((_ data: Foundation.Data?, _ error: any Swift.Error) -> Swift.Void)? = nil) where R : Swift.Decodable
+  public class Builder {
+    public init(url: Swift.String)
+    public func setMethod(_ method: net.Method) -> net.HttpCaller.Builder
+    public func setCachePolicy(_ cachePolicy: net.CachePolicy) -> net.HttpCaller.Builder
+    public func setContentType(_ contentType: net.ContentType) -> net.HttpCaller.Builder
+    public func addHeader(key: Swift.String, value: Swift.String) -> net.HttpCaller.Builder
+    public func addHeaders(headers: [Swift.String : Swift.String]) -> net.HttpCaller.Builder
+    public func addParam(key: Swift.String, value: Any) -> net.HttpCaller.Builder
+    public func addParams(params: [Swift.String : Any]) -> net.HttpCaller.Builder
+    public func addParam<P>(param: P) -> net.HttpCaller.Builder where P : Swift.Encodable
+    @objc deinit
+  }
+}
+extension net.HttpCaller : Foundation.URLSessionDelegate {
+  @objc dynamic public func urlSession(_ session: Foundation.URLSession, didReceive challenge: Foundation.URLAuthenticationChallenge, completionHandler: @escaping (Foundation.URLSession.AuthChallengeDisposition, Foundation.URLCredential?) -> Swift.Void)
+}
+extension net.Method : Swift.Equatable {}
+extension net.Method : Swift.Hashable {}
+extension net.Method : Swift.RawRepresentable {}
+extension net.CachePolicy : Swift.Equatable {}
+extension net.CachePolicy : Swift.Hashable {}
+extension net.CachePolicy : Swift.RawRepresentable {}
+extension net.LogInterceptor.LogLevel : Swift.Equatable {}
+extension net.LogInterceptor.LogLevel : Swift.Hashable {}
+extension net.LogInterceptor.LogLevel : Swift.RawRepresentable {}
+extension net.ContentType : Swift.Equatable {}
+extension net.ContentType : Swift.Hashable {}
+extension net.ContentType : Swift.RawRepresentable {}
